@@ -31,25 +31,25 @@
 
         <div id="finances" class="about-info">
             <h1>Finances</h1>
-           <img src="icons/finances.png" class="about-icon">
+           <img src="icons/finances.png" alt="finances" class="about-icon">
             <p class="about-text">Track your daily finances by sorting purchases into categories.</p>
         </div>
 
         <div id="health" class="about-info">
             <h1>Health</h1>
-            <img src="icons/health.png" class="about-icon">
+            <img src="icons/health.png" alt="health" class="about-icon">
             <p class="about-text">Track your health data by keeping notes of appointments, mood, and changes in diet.</p>
         </div>
 
         <div id="fitness" class="about-info">
                <h1>Fitness</h1>
-                <img src="icons/fitness.png" class="about-icon">
+                <img src="icons/fitness.png" alt="fitness" class="about-icon">
                 <p class="about-text">Track your fitness by keeping notes of your workouts.</p>
         </div>
 
         <div id="transport" class="about-info">
             <h1>Transport</h1>
-            <img src="icons/transport.png" class="about-icon">
+            <img src="icons/transport.png" alt="transport" class="about-icon">
             <p class="about-text">Track information about your transportation habits.</p>
         </div>
     </section>
@@ -69,28 +69,28 @@
 
         <div class="dashboard-option">
             <a href="/">
-            <img src="icons/finances.png">
+            <img src="icons/finances.png" alt="finances">
                 <p class="dashboard-text">Finance</p>
             </a>
         </div>
 
         <div class="dashboard-option">
             <a href="/">
-                <img src="icons/health.png">
+                <img src="icons/health.png" alt="health">
                 <p class="dashboard-text">Health</p>
             </a>
         </div>
 
         <div class="dashboard-option">
             <a href="/">
-                <img src="icons/fitness.png">
+                <img src="icons/fitness.png" alt="fitness">
                 <p class="dashboard-text">Fitness</p>
             </a>
         </div>
 
         <div class="dashboard-option">
             <a href="/">
-                <img src="icons/transport.png">
+                <img src="icons/transport.png" alt="transport">
                 <p class="dashboard-text">Transport</p>
             </a>
         </div>
@@ -98,8 +98,19 @@
         <button id="logout">Logout</button>
     </section>
 
-    <section class="finance-data">
+    <section id="finance-data" class="lifestyle-data">
+       <img src="icons/finances.png" alt="finances" class="icon-header">
         <h1>Finance</h1>
+        <h2>Data</h2>
+        <div class="data-controls">
+            <span class="view-container"><a href="/">ALL ENTRIES</a></span>
+            <span class="view-container">
+                <form>
+                    <input placeholder="Search"><button>Submit</button>
+                </form>
+            </span>
+            <span class="view-container"><a href="/">+ ADD ENTRY</a></span>
+        </div>
         <table class="data-table">
             <tr>
                 <th>Date</th>
@@ -110,11 +121,31 @@
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
+            <tr>
+                <td>12/01/2017</td>
+                <td>Clothing</td>
+                <td>$25</td>
+                <td></td>
+                <td>icon</td>
+                <td>icon</td>
+                <td>icon</td>
+            </tr>
         </table>
     </section>
 
-    <section class="health-data">
+    <section id="health-data" class="lifestyle-data">
+        <img src="icons/health.png" alt="health" class="icon-header">
         <h1>Health</h1>
+        <h2>Data</h2>
+        <div class="data-controls">
+            <span class="view-container"><a href="/">ALL ENTRIES</a></span>
+            <span class="view-container">
+                <form>
+                    <input placeholder="Search"><button>Submit</button>
+                </form>
+            </span>
+            <span class="view-container"><a href="/">+ ADD ENTRY</a></span>
+        </div>
         <table class="data-table">
             <tr>
                 <th>Date</th>
@@ -127,8 +158,19 @@
         </table>
     </section>
 
-    <section class="fitness-data">
+    <section id="fitness-data" class="lifestyle-data">
+        <img src="icons/fitness.png" alt="fitness" class="icon-header">
         <h1>Fitness</h1>
+        <h2>Data</h2>
+        <div class="data-controls">
+            <span class="view-container"><a href="/">ALL ENTRIES</a></span>
+            <span class="view-container">
+                <form>
+                    <input placeholder="Search"><button>Submit</button>
+                </form>
+            </span>
+            <span class="view-container"><a href="/">+ ADD ENTRY</a></span>
+        </div>
         <table class="data-table">
             <tr>
                 <th>Date</th>
@@ -142,8 +184,19 @@
         </table>
     </section>
 
-    <section class="transport-data">
+    <section id="transport-data" class="lifestyle-data">
+        <img src="icons/transport.png" alt="transport" class="icon-header">
         <h1>Transport</h1>
+        <h2>Data</h2>
+        <div class="data-controls">
+            <span class="view-container"><a href="/">ALL ENTRIES</a></span>
+            <span class="view-container">
+                <form>
+                    <input placeholder="Search"><button>Submit</button>
+                </form>
+            </span>
+            <span class="view-container"><a href="/">+ ADD ENTRY</a></span>
+        </div>
         <table class="data-table">
             <tr>
                 <th>Date</th>
