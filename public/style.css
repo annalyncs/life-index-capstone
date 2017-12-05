@@ -5,6 +5,10 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+ul {
+    list-style: none;
+}
+
 /*****NAVIGATION****/
 nav {
     position: fixed;
@@ -86,8 +90,12 @@ p.main-tagline {
     font-size: 20px;
 }
 
-.about-page h1 {
-    font-size: 45px;
+.about-info h1 {
+    font-size: 30px;
+}
+
+h1.about-page-header {
+    font-size: 50px;
 }
 
 section.about-page {
@@ -104,11 +112,81 @@ section.about-page {
 }
 
 .about-info {
-    height: 60%;
+    height: 70%;
     margin: 10px;
     background-color: lightsteelblue;
     box-shadow: 0 3px 5px rgba(0,0,0,.2);
 }
+
+/*****DASHBOARD*****/
+
+h1.dashboard-header {
+    font-size: 50px;
+    color: lightsteelblue
+}
+
+div.dashboard-option {
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    margin: 30px;
+}
+
+.dashboard-tagline{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+section.dashboard {
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1.dashboard-header {
+    text-align: left;
+}
+
+div.dashboard-option p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+button#logout {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    background: rgba(51,204,204,0.7);
+    box-shadow: 0 6px 3px -3px #D3D3D3;
+    color: white;
+    border: 0px;
+}
+
+/*****DASHBOARD NAV*****/
+#navbar {
+    background-color: rgba(51,204,204,0.7);
+    box-shadow: 0 10px 6px -6px #D3D3D3;
+    font-size: 14px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    text-align: left;
+    width: 150px;
+    font-weight: 400;
+}
+
+#life-index {
+    color: white;
+    font-size: 18px;
+}
+
+#navbar ul li {
+    padding: 5px;
+}
+
+
+
 
 
 
@@ -127,7 +205,7 @@ a:visited {
     color: black;
 }
 
-img.about-icon {
+img {
     height: 100px;
 }
 
