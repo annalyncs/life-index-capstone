@@ -5,35 +5,54 @@
     <meta charset="UTF-8">
     <title>Life Index</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand|Roboto:400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
     <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
     <nav class="navigation">
         <ul>
-            <li>About</li>
-            <li>Sign In</li>
-            <li>Sign Up</li>
+            <li class="nav-left"><a href="#about">About</a></li>
+            <li><a href="/">Sign In</a></li>
+            <li><a href="/">Sign Up</a></li>
         </ul>
     </nav>
+
     <div class="start-page">
-        <h1>Life Index</h1>
-        <h2>Lifestyle organizer for daily data</h2>
+        <h1 class="main-title">Life Index</h1>
+        <p class="main-tagline">Lifestyle organizer for daily data<p>
     </div>
 
-    <div class="about">
-        <h1>How It Works</h1>
-        <h2>Finances</h2>
-            <p class="about-info">Track your daily finances</p>
-        <h2>Health</h2>
-            <p class="about-info">Track your health data by keeping notes of appointments, mood, changes in diet</p>
-        <h2>Fitness</h2>
-            <p class="about-info">Track your fitness by keeping notes of workouts</p>
-        <h2>Transportation</h2>
-        <p class="about-info">Track information about your transportation habits</p>
+    <div id="about" class="about-page">
+        <h1>HOW IT WORKS</h1>
+        <p>Life index helps you organize your daily data by keeping track of your lifestyle habits.</p>
+
+        <div id="finances" class="about-page">
+            <h1>Finances</h1>
+           <img src="icons/finances.png" class="about-icon">
+            <p class="about-info">Track your daily finances by sorting purchases into categories.</p>
+        </div>
+
+        <div id="health" class="about-page">
+            <h1>Health</h1>
+            <img src="icons/health.png" class="about-icon">
+            <p class="about-info">Track your health data by keeping notes of appointments, mood, and changes in diet.</p>
+        </div>
+
+        <div id="fitness" class="about-page">
+               <h1>Fitness</h1>
+                <img src="icons/fitness.png" class="about-icon">
+                <p class="about-info">Track your fitness by keeping notes of your workouts.</p>
+        </div>
+
+        <div id="transportation" class="about-page">
+            <h1>Transportation</h1>
+            <img src="icons/transport.png" class="about-icon">
+            <p class="about-info">Track information about your transportation habits.</p>
+        </div>
     </div>
 
+<!--
     <div class="dashboard">
         <h1>Your Dashboard</h1>
         <span class="dashboard-option">Finance</span>
@@ -102,9 +121,7 @@
             </tr>
         </table>
     </section>
-
-    <footer>Built by Annalyn Sarmiento</footer>
-
+-->
 
 
 </body>

@@ -1,7 +1,8 @@
 body {
     margin: 0 auto;
+    font-size: 16px;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
     background: #65869f;
     background: url("");
     background-size: cover;
@@ -12,3 +13,131 @@ body {
     position: relative;
 }
 
+/*
+div, section {
+    border: 1px solid blue;
+}
+*/
+
+/*****NAVIGATION****/
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: gray;
+}
+
+nav ul {
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+    padding:0;
+    list-style: none;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 18px 15px;
+    font-size: 17px;
+}
+
+li.nav-left {
+    position: relative;
+    right: 300px;
+}
+
+
+/*****LANDING PAGE*****/
+
+.start-page {
+    height: 100vh;
+}
+
+h1.main-title {
+    font-weight: 700;
+    font-size: 64px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    margin-top: 200px;
+}
+
+p.main-tagline {
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+/*****LANDING PAGE ABOUT****/
+.about-page {
+    height: 50vh
+}
+
+.about-page p {
+    font-size: 20px;
+}
+
+.about-page h1 {
+    font-size: 45px;
+}
+
+div.about-page {
+    margin: 0 auto;
+}
+
+.about-page > div {
+    width: 20%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+/*****MISC****/
+
+div, section {
+    margin-top: 80px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+img.about-icon {
+    height: 100px;
+}
+
+
+
+
+
+/*****RESPONSIVE*****/
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    max-width: 1000px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 640px) {
+    .col-3 {
+        width: 30%;
+        display: inline-block;
+        vertical-align: text-top;
+    }
+}
