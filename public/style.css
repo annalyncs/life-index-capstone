@@ -3,21 +3,7 @@ body {
     font-size: 16px;
     padding: 0;
     font-family: 'Raleway', sans-serif;
-    background: #65869f;
-    background: url("");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    min-height: 100%;
-    position: relative;
 }
-
-/*
-div, section {
-    border: 1px solid blue;
-}
-*/
 
 /*****NAVIGATION****/
 nav {
@@ -26,7 +12,8 @@ nav {
     left: 0;
     right: 0;
     z-index: 10;
-    background: gray;
+    margin: 0;
+    background-color: rgba(255,255,255,0.5);
 }
 
 nav ul {
@@ -52,9 +39,23 @@ li.nav-left {
 
 /*****LANDING PAGE*****/
 
-.start-page {
-    height: 100vh;
+div.start-page header {
+    background: rgba(0,0,0,0.5);
+    height: 100%;
 }
+
+.start-page {
+    background: rgba(255, 0, 0, 0.25);
+    background: url("./images/desk.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    margin: 0;
+}
+
 
 h1.main-title {
     font-weight: 700;
@@ -62,18 +63,23 @@ h1.main-title {
     text-transform: uppercase;
     text-align: center;
     padding: 10px;
-    margin-top: 200px;
+    padding-top: 50vh;
+    margin: 0;
+    color: #fff;
 }
 
 p.main-tagline {
     text-align: center;
     padding: 10px;
     margin: 0;
+    color: #999;
 }
 
-/*****LANDING PAGE ABOUT****/
+/*****ABOUT PAGE****/
 .about-page {
-    height: 50vh
+    height: 100vh;
+    margin-top: 50px;
+    padding: 20px;
 }
 
 .about-page p {
@@ -84,8 +90,9 @@ p.main-tagline {
     font-size: 45px;
 }
 
-div.about-page {
+section.about-page {
     margin: 0 auto;
+    text-align: center;
 }
 
 .about-page > div {
@@ -94,6 +101,13 @@ div.about-page {
     vertical-align: top;
     padding: 10px;
     text-align: center;
+}
+
+.about-info {
+    height: 60%;
+    margin: 10px;
+    background-color: lightsteelblue;
+    box-shadow: 0 3px 5px rgba(0,0,0,.2);
 }
 
 
@@ -117,6 +131,7 @@ img.about-icon {
     height: 100px;
 }
 
+/*****FOOTER*****/
 
 
 
