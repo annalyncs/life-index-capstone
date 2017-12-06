@@ -5,6 +5,26 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+/*****MISC****/
+
+div, section {
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+img {
+    height: 100px;
+}
+
 ul {
     list-style: none;
 }
@@ -137,6 +157,10 @@ div.dashboard-option {
     font-weight: 700;
 }
 
+.dashboard-text{
+    color: steelblue;
+}
+
 section.dashboard {
     margin: 0 auto;
     text-align: center;
@@ -144,6 +168,7 @@ section.dashboard {
 
 h1.dashboard-header {
     text-align: left;
+    margin: 20px;
 }
 
 div.dashboard-option p {
@@ -151,11 +176,29 @@ div.dashboard-option p {
     font-weight: 700;
 }
 
+div#dash-buttons {
+    margin: 0 auto;
+    text-align: center;
+}
+
 button#logout {
     display: block;
-    margin: 0 auto;
+    margin: auto;
     padding: 10px;
     margin-top: 10px;
+    font-size: 20px;
+    background: lightsteelblue;
+    box-shadow: 0 6px 3px -3px #D3D3D3;
+    color: white;
+    border: 0px;
+}
+
+button#dash-logout, button#dash-back {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 30px;
+    margin-right: 10px;
     font-size: 20px;
     background: lightsteelblue;
     box-shadow: 0 6px 3px -3px #D3D3D3;
@@ -167,10 +210,11 @@ button#logout {
 .icon-header {
     display: inline-block;
     float: left;
-    height: 75px;
+    height: 125px;
     margin-right: 20px;
     margin-left: 20px;
     width: auto;
+
 }
 
 #navbar ul li {
@@ -180,16 +224,19 @@ button#logout {
 .lifestyle-data h1, h2 {
     padding: 0;
     margin: 0;
+    font-size: 40px;
 }
 
 .lifestyle-data h2 {
     font-weight: 300;
     font-size: 20px;
+    color: steelblue;
 }
 
 div.data-controls {
     margin: 0 auto;
     padding: 10px;
+    text-align: center;
 }
 
 div.data-controls span, form {
@@ -243,37 +290,18 @@ button.search {
 
 input {
     height: 30px;
+    border: 1px lightslategrey solid;
+    padding: 10px;
 }
 
-
-/*****MISC****/
-
-div, section {
-    margin-top: 80px;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-a:visited {
-    color: black;
-}
-
-img {
-    height: 100px;
-}
 
 /*****FOOTER*****/
 footer {
     background: #ccc;
-    height: 5vh;
+    height: 7vh;
     padding: 10px;
     text-align: center;
 }
-
-
 
 
 /*****RESPONSIVE*****/
