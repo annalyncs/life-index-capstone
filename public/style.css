@@ -159,6 +159,8 @@ div.dashboard-option {
 
 .dashboard-text{
     color: steelblue;
+    font-weight: 300;
+    font-size: 20px;
 }
 
 section.dashboard {
@@ -170,11 +172,6 @@ section.dashboard {
 h1.dashboard-header {
     text-align: left;
     margin: 20px;
-}
-
-div.dashboard-option p {
-    font-size: 20px;
-    font-weight: 700;
 }
 
 div#dash-buttons {
