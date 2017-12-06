@@ -163,24 +163,6 @@ button#logout {
     border: 0px;
 }
 
-/*****DASHBOARD NAV*****/
-#navbar {
-    background-color: rgba(51,204,204,0.7);
-    box-shadow: 0 10px 6px -6px #D3D3D3;
-    font-size: 14px;
-    top: 0;
-    right: 0;
-    position: absolute;
-    text-align: left;
-    width: 150px;
-    font-weight: 400;
-}
-
-#life-index {
-    color: white;
-    font-size: 18px;
-}
-
 /*****LIFESTYLE DATA*****/
 .icon-header {
     display: inline-block;
