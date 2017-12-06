@@ -157,7 +157,7 @@ button#logout {
     padding: 10px;
     margin-top: 10px;
     font-size: 20px;
-    background: rgba(51,204,204,0.7);
+    background: lightsteelblue;
     box-shadow: 0 6px 3px -3px #D3D3D3;
     color: white;
     border: 0px;
@@ -187,13 +187,23 @@ button#logout {
     font-size: 20px;
 }
 
-.lifestyle-data span,
-form {
+div.data-controls {
+    margin: 0 auto;
     padding: 10px;
-    display: inline-block;
-
 }
 
+div.data-controls span, form {
+    display: inline-block;
+    text-align: center;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.view-container a {
+    color: lightslategray;
+}
 
 table {
     border-collapse: collapse;
@@ -219,6 +229,20 @@ table td {
     padding: 10px 5px;
     text-align: left;
     vertical-align: middle;
+}
+
+button.search {
+    padding: 5px;
+    margin-left: 5px;
+    background: lightsteelblue;
+    color: white;
+    border: 0px;
+    height: 30px;
+    vertical-align: top;
+}
+
+input {
+    height: 30px;
 }
 
 
