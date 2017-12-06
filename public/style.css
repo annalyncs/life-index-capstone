@@ -205,8 +205,11 @@ button#logout {
     font-size: 20px;
 }
 
-.lifestyle-data span, form {
+.lifestyle-data span,
+form {
     padding: 10px;
+    display: inline-block;
+
 }
 
 
@@ -257,6 +260,12 @@ img {
 }
 
 /*****FOOTER*****/
+footer {
+    background: grey;
+    height: 5vh;
+    padding: 10px;
+    text-align: center;
+}
 
 
 

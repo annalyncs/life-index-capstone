@@ -1,5 +1,9 @@
 {
-    "name": "Book Keeper Capstone",
+    "name": "Life-Index-Capstone",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/annalyncs/life-index-capstone"
+    },
     "version": "1.0.0",
     "description": "full stack capstone",
     "main": "server.js",
