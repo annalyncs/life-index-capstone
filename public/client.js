@@ -21,12 +21,14 @@
 
     //submit sign up or sign in form
     //redirect to dashboard
-    $('.sign-in-submit').on('click', function() {
+    $('.sign-in-submit').on('click', function(e) {
+        e.preventDefault();
         $('#sign-in-form').addClass('hide-display');
         $('.dashboard').removeClass('hide-display');
     });
 
-    $('.sign-up-submit').on('click', function() {
+    $('.sign-up-submit').on('click', function(e) {
+        e.preventDefault();
         $('#sign-up-form').addClass('hide-display');
         $('.dashboard').removeClass('hide-display');
     });
@@ -78,6 +80,18 @@
         $('nav').removeClass('hide-display');
     });
 
+    //click on add entry
+    //redirect to add entry form
+    $('#finance-add').on('click', function() {
+        $('#finance-data').addClass('hide-display');
+        $('#add-entry-finance').removeClass('hide-display');
+    });
+
+    $('.finance-submit').on('click', function(e){
+        e.preventDefault();
+        $('#finance-data').removeClass('hide-display');
+        $('#add-entry-finance').addClass('hide-display');
+    });
 
 
 

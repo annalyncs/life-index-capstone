@@ -319,13 +319,21 @@ img.icon {
 
 /*****FORMS*****/
 #sign-in-form,
-#sign-up-form {
+#sign-up-form,
+.add-entry{
     text-align: center;
 }
 
 
 form h1 {
     color: steelblue;
+    margin-bottom: 0;
+}
+
+h2.add-entry-new {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 50px;
 }
 
 input {
@@ -337,10 +345,12 @@ input {
 label {
     display: inline-block;
     width: 100px;
+    font-weight: 700;
 }
 
 .sign-in-submit,
-.sign-up-submit{
+.sign-up-submit,
+.add-submit{
     margin-bottom: 10px;
     margin-top: 20px;
     border: 0px;
@@ -348,6 +358,12 @@ label {
     box-shadow: 0 6px 3px -3px #D3D3D3;
     color: white;
     height: 40px;
+}
+
+select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
 }
 
 /*****FOOTER*****/
