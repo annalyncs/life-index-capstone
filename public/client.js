@@ -1,21 +1,35 @@
+"use strict";
+
 (function($) {
 
     //Click sign in or sign up
-    //Redirect to dash board
+    //Redirect to forms
     //Hide start page
     $('#sign-in').on('click', function() {
         $('.start-page').addClass('hide-display');
         $('.about-page').addClass('hide-display');
-        $('.dashboard').removeClass('hide-display');
+        $('#sign-in-form').removeClass('hide-display');
         $('nav').addClass('hide-display');
     })
 
     $('#sign-up').on('click', function() {
         $('.start-page').addClass('hide-display');
         $('.about-page').addClass('hide-display');
-        $('.dashboard').removeClass('hide-display');
+        $('#sign-up-form').removeClass('hide-display');
         $('nav').addClass('hide-display');
     })
+
+    //submit sign up or sign in form
+    //redirect to dashboard
+    $('.sign-in-submit').on('click', function() {
+        $('#sign-in-form').addClass('hide-display');
+        $('.dashboard').removeClass('hide-display');
+    });
+
+    $('.sign-up-submit').on('click', function() {
+        $('#sign-up-form').addClass('hide-display');
+        $('.dashboard').removeClass('hide-display');
+    });
 
     //on the dashboard click on an option
     //be redirected to that page

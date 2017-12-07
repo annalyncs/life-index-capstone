@@ -162,7 +162,7 @@ section.about-page {
 
 h1.dashboard-header {
     font-size: 50px;
-    color: lightsteelblue;
+    color: steelblue;
 }
 
 div.dashboard-option {
@@ -317,6 +317,38 @@ img.icon {
     height: 25px;
 }
 
+/*****FORMS*****/
+#sign-in-form,
+#sign-up-form {
+    text-align: center;
+}
+
+
+form h1 {
+    color: steelblue;
+}
+
+input {
+    display: inline-block;
+    margin: 10px;
+    vertical-align: middle;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+.sign-in-submit,
+.sign-up-submit{
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border: 0px;
+    background: lightsteelblue;
+    box-shadow: 0 6px 3px -3px #D3D3D3;
+    color: white;
+    height: 40px;
+}
 
 /*****FOOTER*****/
 footer {
