@@ -5,6 +5,10 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+.hide-display {
+    display: none;
+}
+
 /*****MISC****/
 
 div, section {
@@ -142,7 +146,7 @@ section.about-page {
 
 h1.dashboard-header {
     font-size: 50px;
-    color: lightsteelblue
+    color: lightsteelblue;
 }
 
 div.dashboard-option {
@@ -165,6 +169,7 @@ div.dashboard-option {
 
 section.dashboard {
     margin: 0 auto;
+    margin-top: 80px;
     margin-bottom: 60px;
     text-align: center;
 }

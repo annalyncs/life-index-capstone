@@ -13,8 +13,8 @@
     <nav class="navigation">
         <ul>
             <li class="nav-left"><a href="#about">About</a></li>
-            <li><a href="#">Sign In</a></li>
-            <li><a href="#">Sign Up</a></li>
+            <li><a href="#" id="sign-in">Sign In</a></li>
+            <li><a href="#" id="sign-up">Sign Up</a></li>
         </ul>
     </nav>
 
@@ -54,32 +54,32 @@
         </div>
     </section>
 
-    <section class="dashboard">
+    <section class="dashboard hide-display">
         <h1 class="dashboard-header">Your Dashboard</h1>
         <p class="dashboard-tagline">Check out your data: </p>
 
-        <div class="dashboard-option">
+        <div class="dashboard-option" id="finance-option">
             <a href="#">
             <img src="icons/finances.png" alt="finances">
                 <p class="dashboard-text">Finance</p>
             </a>
         </div>
 
-        <div class="dashboard-option">
+        <div class="dashboard-option" id="health-option">
             <a href="#">
                 <img src="icons/health.png" alt="health">
                 <p class="dashboard-text">Health</p>
             </a>
         </div>
 
-        <div class="dashboard-option">
+        <div class="dashboard-option" id="fitness-option">
             <a href="#">
                 <img src="icons/fitness.png" alt="fitness">
                 <p class="dashboard-text">Fitness</p>
             </a>
         </div>
 
-        <div class="dashboard-option">
+        <div class="dashboard-option" id="transport-option">
             <a href="#">
                 <img src="icons/transport.png" alt="transport">
                 <p class="dashboard-text">Transport</p>
@@ -89,7 +89,7 @@
         <button id="logout">Logout</button>
     </section>
 
-    <section id="finance-data" class="lifestyle-data">
+    <section id="finance-data" class="lifestyle-data hide-display">
        <img src="icons/finances.png" alt="finances" class="icon-header">
         <h1>Finance</h1>
         <h2>Data</h2>
@@ -104,13 +104,13 @@
         </div>
         <table class="data-table">
             <tr>
-                <th>Date</th>
-                <th>Category</th>
-                <th>Cost</th>
-                <th>Notes</th>
-                <th>View</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th id="table-date">Date</th>
+                <th id="table-category">Category</th>
+                <th id="table-cost">Cost</th>
+                <th id="table-notes">Notes</th>
+                <th id="table-view">View</th>
+                <th id="table-edit">Edit</th>
+                <th id="table-delete">Delete</th>
             </tr>
             <tr>
                 <td>12/01/2017</td>
@@ -129,7 +129,7 @@
         </div>
     </section>
 
-    <section id="health-data" class="lifestyle-data">
+    <section id="health-data" class="lifestyle-data hide-display">
         <img src="icons/health.png" alt="health" class="icon-header">
         <h1>Health</h1>
         <h2>Data</h2>
@@ -159,7 +159,7 @@
         </div>
     </section>
 
-    <section id="fitness-data" class="lifestyle-data">
+    <section id="fitness-data" class="lifestyle-data hide-display">
         <img src="icons/fitness.png" alt="fitness" class="icon-header">
         <h1>Fitness</h1>
         <h2>Data</h2>
@@ -190,7 +190,7 @@
         </div>
     </section>
 
-    <section id="transport-data" class="lifestyle-data">
+    <section id="transport-data" class="lifestyle-data hide-display">
         <img src="icons/transport.png" alt="transport" class="icon-header">
         <h1>Transport</h1>
         <h2>Data</h2>
