@@ -51,6 +51,20 @@
         $('#transport-data').addClass('hide-display');
     });
 
+    //click on logout
+    //redirect back to dashboard
+    $('section').on('click', '.logout', function(){
+        $('.dashboard').addClass('hide-display');
+        $('#finance-data').addClass('hide-display');
+        $('#health-data').addClass('hide-display');
+        $('#fitness-data').addClass('hide-display');
+        $('#transport-data').addClass('hide-display');
+        $('.start-page').removeClass('hide-display');
+        $('.about-page').removeClass('hide-display');
+        $('nav').removeClass('hide-display');
+    });
+
+
 
 
 
