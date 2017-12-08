@@ -93,6 +93,41 @@
         $('#add-entry-finance').addClass('hide-display');
     });
 
+    $('#health-add').on('click', function() {
+        $('#health-data').addClass('hide-display');
+        $('#add-entry-health').removeClass('hide-display');
+    });
+
+    $('.health-submit').on('click', function(e){
+        e.preventDefault();
+        $('#health-data').removeClass('hide-display');
+        $('#add-entry-health').addClass('hide-display');
+    });
+
+    $('#fitness-add').on('click', function() {
+        console.log('worked');
+        $('#fitness-data').addClass('hide-display');
+        $('#add-entry-fitness').removeClass('hide-display');
+    });
+
+    $('.fitness-submit').on('click', function(e){
+        e.preventDefault();
+        $('#fitness-data').removeClass('hide-display');
+        $('#add-entry-fitness').addClass('hide-display');
+    });
+
+    $('#transport-add').on('click', function() {
+        $('#transport-data').addClass('hide-display');
+        $('#add-entry-transport').removeClass('hide-display');
+    });
+
+    $('.transport-submit').on('click', function(e){
+        e.preventDefault();
+        $('#transport-data').removeClass('hide-display');
+        $('#add-entry-transport').addClass('hide-display');
+    });
+
+
 
 
 
