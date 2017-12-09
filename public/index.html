@@ -98,8 +98,20 @@
         <div class="data-controls">
             <span class="view-container"><a href="#">ALL ENTRIES</a></span>
             <span class="view-container">
-                <form>
-                    <input placeholder="Search"><button class="search">Submit</button>
+               <form id="search-category">
+                <label for="date">Filter:</label><br>
+                    <select name="category">
+                        <option>Apparel, Shoes & Accessories</option>
+                        <option>Dining & Drinking</option>
+                        <option>Entertainment</option>
+                        <option>Groceries</option>
+                        <option>Household Products</option>
+                        <option>Medical & Health</option>
+                        <option>Transportation</option>
+                        <option>Personal Care</option>
+                        <option>Professional Services</option>
+                        <option>Other</option>
+                    </select>
                 </form>
             </span>
             <span class="view-container"><a href="#" id="finance-add">+ ADD ENTRY</a></span>
@@ -139,8 +151,14 @@
         <div class="data-controls">
             <span class="view-container"><a href="#">ALL ENTRIES</a></span>
             <span class="view-container">
-                <form class="search">
-                    <input placeholder="Search"><button class="search">Submit</button>
+                <form id="search-category">
+                    <label for="date">Filter:</label><br>
+                    <select name="category">
+                        <option>Appointment</option>
+                        <option>Mood</option>
+                        <option>Diet</option>
+                        <option>Other</option>
+                    </select>
                 </form>
             </span>
             <span class="view-container"><a href="#" id="health-add">+ ADD ENTRY</a></span>
@@ -170,8 +188,15 @@
         <div class="data-controls">
             <span class="view-container"><a href="#">ALL ENTRIES</a></span>
             <span class="view-container">
-                <form class="search">
-                    <input placeholder="Search"><button class="search">Submit</button>
+                <form id="search-category">
+                    <label for="date">Filter:</label><br>
+                    <select name="category">
+                            <option>Aerobic</option>
+                            <option>Strength</option>
+                            <option>Balance</option>
+                            <option>Flexibility</option>
+                            <option>Other</option>
+                    </select>
                 </form>
             </span>
             <span class="view-container"><a href="#" id="fitness-add">+ ADD ENTRY</a></span>
@@ -202,9 +227,17 @@
         <div class="data-controls">
             <span class="view-container"><a href="#">ALL ENTRIES</a></span>
             <span class="view-container">
-                <form class="search">
-                    <input placeholder="Search"><button class="search">Submit</button>
+                <form id="search-category">
+                    <label for="date">Filter:</label><br>
+                    <select name="category">
+                            <option>Auto</option>
+                            <option>Bus</option>
+                            <option>Train</option>
+                            <option>Bicycle</option>
+                            <option>Other</option>
+                    </select>
                 </form>
+            </span>
             </span>
             <span class="view-container"><a href="#" id="transport-add">+ ADD ENTRY</a></span>
         </div>
@@ -279,7 +312,13 @@
             <label for="date">Date</label><br>
             <input type="text" name="date"><br>
             <label for="workout">Workout</label><br>
-            <input type="text" name="workout"><br>
+            <select name="category">
+                <option>Aerobic</option>
+                <option>Strength</option>
+                <option>Balance</option>
+                <option>Flexibility</option>
+                <option>Other</option>
+            </select><br>
             <label for="duration">Duration</label><br>
             <input type="text" name="duration"><br>
             <label for="notes">Notes</label><br>
@@ -295,7 +334,13 @@
             <label for="date">Date</label><br>
             <input type="text" name="date"><br>
             <label for="type">Type</label><br>
-            <input type="text" name="type"><br>
+            <select name="category">
+                <option>Auto</option>
+                <option>Bus</option>
+                <option>Train</option>
+                <option>Bicycle</option>
+                <option>Other</option>
+            </select><br>
             <label for="miles">Miles</label><br>
             <input type="text" name="duration"><br>
             <label for="notes">Notes</label><br>
