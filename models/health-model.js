@@ -8,8 +8,8 @@ const healthSchema = mongoose.Schema({
     collection: 'health'
 });
 
-const Helath = mongoose.model('Helath', healthSchema);
+const Health = mongoose.model('Health', healthSchema);
 
 module.exports = {
-    Helath
+    Health
 };

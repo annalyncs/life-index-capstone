@@ -1,0 +1,16 @@
+{
+    "date": "09/08/2017",
+    "type": "Auto",
+    "miles": "300 miles",
+    "notes": "road trip"
+} {
+    "date": "04/08/2017",
+    "type": "Bicycle",
+    "miles": "1 hour",
+    "notes": "Walnut Trail"
+} {
+    "date": "08/08/2017",
+    "type": "Bus",
+    "miles": "1 hour",
+    "notes": "Metro route 36"
+}
