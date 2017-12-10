@@ -136,24 +136,89 @@
     $('#all-finance-entries').on('click', function() {
         $.ajax({
             method: 'GET',
-            url: '/finances'
+            url: FINANCES_URL
         })
             .done(function(data) {
                 let financeTableRows =
                     data.map(function (finance, index) {
-                    return `<tr>
-                        <td>${data[index].date}</td>
-                        <td>${data[index].category}</td>
-                        <td>${data[index].cost}</td>
-                        <td>${data[index].notes}</td>
-                        <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon"></a></td>
-                        <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon"></a></td>
-                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon"></a></td>
-                    </tr>`;
+                        return `<tr>
+                            <td id="finance-date-row">${finance.date}</td>
+                            <td id="finance-category-row">${finance.category}</td>
+                            <td id="finance-cost-row">${finance.cost}</td>
+                            <td id="finance-notes-row">${finance.notes}</td>
+                            <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon" id="view-icon"></a></td>
+                            <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon" id="edit-icon"></a></td>
+                            <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon" id="delete-icon"></a></td>
+                        </tr>`;
                     });
-                $('table').append(financeTableRows);
+                $('#finance-table').append(financeTableRows);
             });
         });
+
+    $('#all-health-entries').on('click', function() {
+        $.ajax({
+            method: 'GET',
+            url: HEALTH_URL
+        })
+            .done(function(data) {
+            let healthTableRows =
+                data.map(function (health, index) {
+                    return `<tr>
+                            <td id="health-date-row">${health.date}</td>
+                            <td id="health-category-row">${health.category}</td>
+                            <td id="health-notes-row">${health.notes}</td>
+                            <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon" id="view-icon"></a></td>
+                            <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon" id="edit-icon"></a></td>
+                            <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon" id="delete-icon"></a></td>
+                        </tr>`;
+                });
+            $('#health-table').append(healthTableRows);
+        });
+    });
+
+    $('#all-fitness-entries').on('click', function() {
+        $.ajax({
+            method: 'GET',
+            url: FITNESS_URL
+        })
+            .done(function(data) {
+            let fitnessTableRows =
+                data.map(function (fitness, index) {
+                    return `<tr>
+                            <td id="fitness-date-row">${fitness.date}</td>
+                            <td id="fitness-workout-row">${fitness.workout}</td>
+                            <td id="fitness-duration-row">${fitness.duration}</td>
+                            <td id="fitness-notes-row">${fitness.notes}</td>
+                            <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon" id="view-icon"></a></td>
+                            <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon" id="edit-icon"></a></td>
+                            <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon" id="delete-icon"></a></td>
+                        </tr>`;
+                });
+            $('#fitness-table').append(fitnessTableRows);
+        });
+    });
+
+    $('#all-transport-entries').on('click', function() {
+        $.ajax({
+            method: 'GET',
+            url: TRANSPORT_URL
+        })
+            .done(function(data) {
+            let transportTableRows =
+                data.map(function (transport, index) {
+                    return `<tr>
+                        <td id="fitness-date-row">${transport.date}</td>
+                        <td id="fitness-type-row">${transport.type}</td>
+                        <td id="fitness-miles-row">${transport.miles}</td>
+                        <td id="fitness-notes-row">${transport.notes}</td>
+                        <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon" id="view-icon"></a></td>
+                        <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon" id="edit-icon"></a></td>
+                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon" id="delete-icon"></a></td>
+                    </tr>`;
+                });
+            $('#transport-table').append(transportTableRows);
+        });
+    });
 
 
 })(jQuery);
