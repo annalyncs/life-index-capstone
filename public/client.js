@@ -258,7 +258,8 @@
         displayAllTransportEntries();
     });
 
-    //click on view to view individual entry
+    //click on view icon to view individual entry
+
     $('#finance-table').on('click', '.view-icon', function() {
         let idParameter =$(this).attr('id');
 
@@ -360,5 +361,57 @@
             $('#transport-dash-buttons').before(transportEntry);
         });
     });
+
+    //click edit icon to edit entry
+    //first get data
+    //then update
+
+    function retrieveFitnessData() {
+        $('#finance-table').on('click', '.edit-icon', function() {
+            let idParameter =$(this).attr('id');
+            $('#finance-table').addClass('hide-display');
+            $('.data-controls').addClass('hide-display');
+
+            $.ajax({
+                method: 'GET',
+                url: `${FINANCES_URL}/${idParameter}`
+            })
+                .done(function(data) {
+                    console.log(data);
+                    let financeUpdateForm =
+                        `<div id="update-entry-finance" class="add-entry hide-display">
+                            <form class="add-entry" id=${idParameter}>
+                                <h1 class="add-entry-data">Finance</h1>
+                                <h2 class="add-entry-new">New Entry</h2>
+                                <label for="date">Date</label><br>
+                                <input type="text" name="date" value=${data.date}><br>
+                                <label for="category">Category</label><br>
+                                <select name="category" value=${data.category}>
+                                    <option>Apparel, Shoes & Accessories</option>
+                                    <option>Dining & Drinking</option>
+                                    <option>Entertainment</option>
+                                    <option>Groceries</option>
+                                    <option>Household Products</option>
+                                    <option>Medical & Health</option>
+                                    <option>Transportation</option>
+                                    <option>Personal Care</option>
+                                    <option>Professional Services</option>
+                                    <option>Other</option>
+                                </select><br>
+                                <label for="cost">Cost</label><br>
+                                <input type="text" name="cost" value=${data.cost}><br>
+                                <label for="notes">Notes</label><br>
+                                <input type="text" name="notes" value=${data.notes}><br>
+                                <input type="submit" value="Update" class="add-submit finance-update">
+                            </form>
+                    </div>`;
+
+                $('#finance-dash-buttons').before(financeUpdateForm);
+                $('#update-entry-finance').removeClass('hide-display');
+            });
+        });
+    }
+
+    retrieveFitnessData();
 
 })(jQuery);
