@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const transportSchema = mongoose.Schema({
     date: String,
     type: String,
-    miles: Number,
+    miles: String,
     notes: String
 }, {
     collection: 'transport'

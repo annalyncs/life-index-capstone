@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const financeSchema = mongoose.Schema({
     date: String,
     category: String,
-    cost: Number,
+    cost: String,
     notes: String
 }, {
     collection: 'finance'
