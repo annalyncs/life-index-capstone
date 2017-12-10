@@ -2,6 +2,11 @@
 
 (function($) {
 
+    let FINANCES_URL='/finances';
+    let HEALTH_URL ='/health';
+    let FITNESS_URL = 'fitness';
+    let TRANSPORT_URL = '/transport';
+
     //Click sign in or sign up
     //Redirect to forms
     //Hide start page
@@ -127,12 +132,28 @@
         $('#add-entry-transport').addClass('hide-display');
     });
 
-
-
-
-
-
-
+    //Click on all entries to display all entires
+    $('#all-finance-entries').on('click', function() {
+        $.ajax({
+            method: 'GET',
+            url: '/finances'
+        })
+            .done(function(data) {
+                let financeTableRows =
+                    data.map(function (finance, index) {
+                    return `<tr>
+                        <td>${data[index].date}</td>
+                        <td>${data[index].category}</td>
+                        <td>${data[index].cost}</td>
+                        <td>${data[index].notes}</td>
+                        <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon"></a></td>
+                        <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon"></a></td>
+                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon"></a></td>
+                    </tr>`;
+                    });
+                $('table').append(financeTableRows);
+            });
+        });
 
 
 })(jQuery);
