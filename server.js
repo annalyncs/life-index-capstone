@@ -51,7 +51,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/finances', (req, res, next) => {
+app.get('/finances', (req, res) => {
     Finance
         .find()
         .then(finances => {
@@ -64,6 +64,49 @@ app.get('/finances', (req, res, next) => {
             });
         });
 });
+
+app.get('/health', (req, res) => {
+    Health
+        .find()
+        .then(health => {
+        res.json(health);
+    })
+        .catch(err => {
+        console.error(err);
+        res.status(500).json({
+            error: 'someting went wrong'
+        });
+    });
+});
+
+app.get('/fitness', (req, res) => {
+    Fitness
+        .find()
+        .then(fitness => {
+        res.json(fitness);
+    })
+        .catch(err => {
+        console.error(err);
+        res.status(500).json({
+            error: 'someting went wrong'
+        });
+    });
+});
+
+app.get('/transport', (req, res) => {
+    Transport
+        .find()
+        .then(transport => {
+        res.json(transport);
+    })
+        .catch(err => {
+        console.error(err);
+        res.status(500).json({
+            error: 'someting went wrong'
+        });
+    });
+});
+
 
 let server;
 
