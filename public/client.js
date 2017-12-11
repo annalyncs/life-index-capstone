@@ -285,21 +285,25 @@
     $('#finance-data').on('click', '#all-finance-entries', function() {
         $('.data-rows').html(' ');
         displayAllFinanceEntries();
+        $('#finance-entry').addClass('hide-display');
         });
 
     $('#all-health-entries').on('click', function() {
         $('.data-rows').html(' ');
-       displayAllHealthEntries();
+        displayAllHealthEntries();
+        $('#health-entry').addClass('hide-display');
     });
 
     $('#all-fitness-entries').on('click', function() {
         $('.data-rows').html(' ');
-       displayAllFitnessEntries();
+        displayAllFitnessEntries();
+        $('#fitness-entry').addClass('hide-display');
     });
 
     $('#all-transport-entries').on('click', function() {
         $('.data-rows').html(' ');
         displayAllTransportEntries();
+        $('#transport-entry').addClass('hide-display');
     });
 
     //click on view icon to view individual entry
@@ -324,8 +328,9 @@
                         <p>${data.notes}</p>
                 </div>`;
 
+            $('#finance-entry').removeClass('hide-display');
             $('#finance-table').addClass('hide-display');
-            $('#finance-dash-buttons').before(financeEntry);
+            $('#finance-main').html(financeEntry);
         });
     });
 
@@ -347,9 +352,9 @@
                     <p>${data.notes}</p>
                 </div>`;
 
+            $('#health-entry').removeClass('hide-display');
             $('#health-table').addClass('hide-display');
-
-            $('#health-dash-buttons').before(healthEntry);
+            $('#health-main').html(healthEntry);
         });
     });
 
@@ -373,8 +378,9 @@
                         <p>${data.notes}</p>
                     </div>`;
 
+            $('#fitness-entry').removeClass('hide-display');
             $('#fitness-table').addClass('hide-display');
-            $('#fitness-dash-buttons').before(fitnessEntry);
+            $('#fitness-main').html(fitnessEntry);
         });
     });
 
@@ -398,8 +404,9 @@
                     <p>${data.notes}</p>
                 </div>`;
 
+            $('#transport-entry').removeClass('hide-display');
             $('#transport-table').addClass('hide-display');
-            $('#transport-dash-buttons').before(transportEntry);
+            $('#transport-main').html(transportEntry);
         });
     });
 
