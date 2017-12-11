@@ -324,7 +324,11 @@ img.icon {
 #finance-entry,
 #health-entry,
 #fitness-entry,
-#transport-entry{
+#transport-entry,
+#add-entry-finance,
+#add-entry-health,
+#add-entry-fitness,
+#add-entry-transport{
     text-align: center;
 }
 
@@ -354,7 +358,8 @@ label {
 
 .sign-in-submit,
 .sign-up-submit,
-.add-submit{
+.add-submit,
+.back-button{
     margin-bottom: 10px;
     margin-top: 20px;
     border: 0px;
