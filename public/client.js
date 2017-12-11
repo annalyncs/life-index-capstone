@@ -817,9 +817,41 @@
 
     //CREATE ENTRY
 
-//    function createFitnessEntry() {
-//
-//    }
+    function createFinanceEntry() {
+        $('.add-entry').on('click', '.finance-submit', function(e) {
+            e.preventDefault();
+            let dateInput = $(this).parent().find('#finance-add-date').val();
+            let categoryInput = $(this).parent().find('#finance-add-category').val();
+            let costInput = $(this).parent().find('#finance-add-cost').val();
+            let notesInput = $(this).parent().find('#finance-add-notes').val();
+
+            let dataInput = {
+                'date': dateInput,
+                'category': categoryInput,
+                'cost': costInput,
+                'notes': notesInput
+            };
+
+            $.ajax({
+                method: "POST",
+                url: `${FINANCES_URL}/new`,
+                contentType: 'application/json',
+                data: JSON.stringify(dataInput)
+            })
+                .done(function(data) {
+                    $('#add-entry-finance').addClass('hide-display');
+                    $('.data-rows').html('');
+                    displayAllFinanceEntries();
+                    $('#finance-table').removeClass('hide-display');
+                    $('.data-controls').removeClass('hide-display');
+                    $('.dash-buttons').removeClass('hide-display');
+                    $('form.add-entry').find('#finance-add-date').val('');
+                    $('form.add-entry').find('#finance-add-category').val('');
+                    $('form.add-entry').find('#finance-add-cost').val('');
+                    $('form.add-entry').find('#finance-add-notes').val('');
+            })
+        })
+    }
 
 
     retrieveFinanceData();
@@ -834,5 +866,6 @@
     deleteFitnessEntry();
     deleteHealthEntry();
     deleteTransportEntry();
+    createFinanceEntry();
 
 })(jQuery);
