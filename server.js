@@ -340,7 +340,7 @@ app.put('/transport/:id', jsonParser, (req,res) => {
         }
     });
 
-    Finance
+    Transport
         .findByIdAndUpdate(req.params.id, {
         $set: updated
     }, {
