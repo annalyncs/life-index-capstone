@@ -13,7 +13,6 @@
             url: FINANCES_URL
         })
             .done(function(data) {
-                console.log(data);
                 let financeTableRows =
                     data.map(function (finance, index) {
                         return `<tr class="data-rows" id=${finance._id}>
@@ -23,7 +22,7 @@
                             <td id="finance-notes-row">${finance.notes}</td>
                             <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon view-icon" id="${finance._id}"></a></td>
                             <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon edit-icon" id="${finance._id}"></a></td>
-                            <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon edit-icon" id="${finance._id}"></a></td>
+                            <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon delete-icon" id="${finance._id}"></a></td>
                         </tr>`;
                     });
                 $('#finance-table').removeClass('hide-display');
@@ -45,7 +44,7 @@
                         <td id="health-notes-row">${health.notes}</td>
                         <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon view-icon" id="${health._id}"></a></td>
                         <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon edit-icon" id="${health._id}"></a></td>
-                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon delete" id="icon-${health._id}"></a></td>
+                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon delete-icon" id="icon-${health._id}"></a></td>
                     </tr>`;
                 });
             $('#health-table').removeClass('hide-display');
@@ -68,7 +67,7 @@
                         <td id="fitness-notes-row">${fitness.notes}</td>
                         <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon view-icon" id="${fitness._id}"></a></td>
                         <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon edit-icon" id="${fitness._id}"></a></td>
-                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon delete" id="${fitness._id}"></a></td>
+                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon delete-icon" id="${fitness._id}"></a></td>
                     </tr>`;
                 });
             $('#fitness-table').removeClass('hide-display');
@@ -91,7 +90,7 @@
                         <td id="fitness-notes-row">${transport.notes}</td>
                         <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon view-icon" id="${transport._id}"></a></td>
                         <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon edit-icon" id="${transport._id}"></a></td>
-                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon delete" id="${transport._id}"></a></td>
+                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon delete-icon" id="${transport._id}"></a></td>
                     </tr>`;
                 });
             $('#transport-table').removeClass('hide-display');
@@ -216,7 +215,6 @@
     });
 
     $('#fitness-add').on('click', function() {
-        console.log('worked');
         $('#fitness-data').addClass('hide-display');
         $('#add-entry-fitness').removeClass('hide-display');
     });
@@ -294,7 +292,6 @@
             url: `${HEALTH_URL}/${idParameter}`
         })
             .done(function(data) {
-            console.log(data);
             let healthEntry =
                 `<div id="health-entry">
                 <h2>Date:</h2>
@@ -319,7 +316,6 @@
             url: `${FITNESS_URL}/${idParameter}`
         })
             .done(function(data) {
-            console.log(data);
             let fitnessEntry =
                 `<div id="fitness-entry">
                     <h2>Date:</h2>
@@ -345,7 +341,6 @@
             url: `${TRANSPORT_URL}/${idParameter}`
         })
             .done(function(data) {
-            console.log(data);
             let transportEntry =
                 `<div id="transport-entry">
                 <h2>Date:</h2>
@@ -370,7 +365,6 @@
     function retrieveFinanceData() {
         $('#finance-table').on('click', '.edit-icon', function() {
             let idParameter =$(this).attr('id');
-            console.log(idParameter);
             $('#finance-table').addClass('hide-display');
             $('.data-controls').addClass('hide-display');
 
@@ -379,7 +373,6 @@
                 url: `${FINANCES_URL}/${idParameter}`
             })
                 .done(function(data) {
-                    console.log(data);
                     let financeUpdateForm =
                         `<div id="update-entry-finance" class="add-entry">
                             <form class="add-entry" id=${idParameter}>
@@ -409,6 +402,11 @@
                     </div>`;
                 $('#finance-main').html(financeUpdateForm);
                 $('#update-entry-finance').removeClass('hide-display');
+            })
+                .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
             });
         });
     }
@@ -427,7 +425,6 @@
                 'cost': costInput,
                 'notes': notesInput
             }
-            console.log(idParameter);
 
             $.ajax({
                 method: 'PUT',
@@ -442,14 +439,18 @@
                     $('#finance-table').removeClass('hide-display');
                     $('.data-controls').removeClass('hide-display');
             })
-        })
+                .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+        });
     }
 
-    //HEALTH DATA
+    //UPDATE HEALTH DATA
     function retrieveHealthData() {
         $('#health-table').on('click', '.edit-icon', function() {
             let idParameter =$(this).attr('id');
-            console.log(idParameter);
             $('#health-table').addClass('hide-display');
             $('.data-controls').addClass('hide-display');
 
@@ -458,7 +459,6 @@
                 url: `${HEALTH_URL}/${idParameter}`
             })
                 .done(function(data) {
-                console.log(data);
                 let healthUpdateForm =
                     `<div id="update-entry-health" class="add-entry">
                         <form class="add-entry" id=${idParameter}>
@@ -480,6 +480,11 @@
                     </div>`;
                 $('#health-main').html(healthUpdateForm);
                 $('#update-entry-health').removeClass('hide-display');
+            })
+                .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
             });
         });
     }
@@ -496,7 +501,6 @@
                 'category': categoryInput,
                 'notes': notesInput
             }
-            console.log(idParameter);
 
             $.ajax({
                 method: 'PUT',
@@ -511,15 +515,19 @@
                 $('#health-table').removeClass('hide-display');
                 $('.data-controls').removeClass('hide-display');
             })
+                .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
         })
     }
 
-    //FITNESS DATA
+    // UPDATE FITNESS DATA
 
     function retrieveFitnessData() {
         $('#fitness-table').on('click', '.edit-icon', function() {
             let idParameter =$(this).attr('id');
-            console.log(idParameter);
             $('#fitness-table').addClass('hide-display');
             $('.data-controls').addClass('hide-display');
 
@@ -528,7 +536,6 @@
                 url: `${FITNESS_URL}/${idParameter}`
             })
                 .done(function(data) {
-                console.log(data);
                 let fitnessUpdateForm =
                     `<div id="update-entry-fitness" class="add-entry">
                     <form class="add-entry" id=${idParameter}>
@@ -553,7 +560,12 @@
                     </div>`;
                 $('#fitness-main').html(fitnessUpdateForm);
                 $('#update-entry-fitness').removeClass('hide-display');
-            });
+            })
+                .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+                });
         });
     }
 
@@ -572,7 +584,6 @@
                 'duration': durationInput,
                 'notes': notesInput
             }
-            console.log(idParameter);
 
             $.ajax({
                 method: 'PUT',
@@ -587,15 +598,19 @@
                 $('#fitness-table').removeClass('hide-display');
                 $('.data-controls').removeClass('hide-display');
             })
+                .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
         })
     }
 
-    //TRANSPORT DATA
+    //UPDATE TRANSPORT DATA
 
     function retrieveTransportData() {
         $('#transport-table').on('click', '.edit-icon', function() {
             let idParameter =$(this).attr('id');
-            console.log(idParameter);
             $('#transport-table').addClass('hide-display');
             $('.data-controls').addClass('hide-display');
 
@@ -604,7 +619,6 @@
                 url: `${TRANSPORT_URL}/${idParameter}`
             })
                 .done(function(data) {
-                console.log(data);
                 let transportUpdateForm =
                     `<div id="update-entry-transport" class="add-entry">
                         <form class="add-entry" id=${idParameter}>
@@ -629,6 +643,11 @@
                     </div>`;
                 $('#transport-main').html(transportUpdateForm);
                 $('#update-entry-transport').removeClass('hide-display');
+            })
+                .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
             });
         });
     }
@@ -648,7 +667,6 @@
                 'miles': milesInput,
                 'notes': notesInput
             }
-            console.log(idParameter);
 
             $.ajax({
                 method: 'PUT',
@@ -663,8 +681,95 @@
                 $('#transport-table').removeClass('hide-display');
                 $('.data-controls').removeClass('hide-display');
             })
+                .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            })
         })
     }
+
+    //DELETE ENTRY
+
+    function deleteFinanceEntry() {
+        $('#finance-table').on('click', '.delete-icon', function() {
+            let idParameter =$(this).attr('id');
+
+            $.ajax({
+                method: 'DELETE',
+                url: `${FINANCES_URL}/${idParameter}`
+            })
+                .done(function(data) {
+                    $('.data-rows').html('');
+                    displayAllFinanceEntries();
+            })
+                .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+        });
+    }
+
+    function deleteHealthEntry() {
+        $('#health-table').on('click', '.delete-icon', function() {
+            let idParameter =$(this).attr('id');
+
+            $.ajax({
+                method: 'DELETE',
+                url: `${HEALTH_URL}/${idParameter}`
+            })
+                .done(function(data) {
+                    $('.data-rows').html('');
+                    displayAllHealthEntries();
+            })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+            });
+        });
+    }
+
+    function deleteFitnessEntry() {
+        $('#fitness-table').on('click', '.delete-icon', function() {
+            let idParameter =$(this).attr('id');
+            $.ajax({
+                method: 'DELETE',
+                url: `${FITNESS_URL}/${idParameter}`
+            })
+                .done(function(data) {
+                    $('.data-rows').html('');
+                    displayAllFitnessEntries();
+            })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+            });
+        });
+    }
+
+    function deleteTransportEntry() {
+        $('#transport-table').on('click', '.delete-icon', function() {
+            let idParameter =$(this).attr('id');
+
+            $.ajax({
+                method: 'DELETE',
+                url: `${TRANSPORT_URL}/${idParameter}`
+            })
+                .done(function(data) {
+                    $('.data-rows').html('');
+                    displayAllTransportEntries();
+            })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+            });
+        });
+    }
+
 
     retrieveFinanceData();
     updateFinanceData();
@@ -674,5 +779,9 @@
     updateFitnessData();
     retrieveTransportData();
     updateTransportData();
+    deleteFinanceEntry();
+    deleteFitnessEntry();
+    deleteHealthEntry();
+    deleteTransportEntry();
 
 })(jQuery);
