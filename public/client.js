@@ -44,7 +44,7 @@
                         <td id="health-notes-row">${health.notes}</td>
                         <td><a href="#"><img src="icons/view.png" alt="view-icon" class="icon view-icon" id="${health._id}"></a></td>
                         <td><a href="#"><img src="icons/edit.png" alt="edit-icon" class="icon edit-icon" id="${health._id}"></a></td>
-                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon delete-icon" id="icon-${health._id}"></a></td>
+                        <td><a href="#"><img src="icons/delete.png" alt="delete-icon" class="icon delete-icon" id="${health._id}"></a></td>
                     </tr>`;
                 });
             $('#health-table').removeClass('hide-display');
