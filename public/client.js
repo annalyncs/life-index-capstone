@@ -886,6 +886,42 @@
         })
     }
 
+    function createFitnessEntry() {
+        $('.add-entry').on('click', '.fitness-submit', function(e) {
+            e.preventDefault();
+            let dateInput = $(this).parent().find('#fitness-add-date').val();
+            let workoutInput = $(this).parent().find('#fitness-add-workout').val();
+            let durationInput = $(this).parent().find('#fitness-add-duration').val();
+            let notesInput = $(this).parent().find('#fitness-add-notes').val();
+
+            let dataInput = {
+                'date': dateInput,
+                'workout': workoutInput,
+                'duration': durationInput,
+                'notes': notesInput
+            };
+
+            $.ajax({
+                method: "POST",
+                url: `${FITNESS_URL}/new`,
+                contentType: 'application/json',
+                data: JSON.stringify(dataInput)
+            })
+                .done(function(data) {
+                $('#add-entry-fitness').addClass('hide-display');
+                $('.data-rows').html('');
+                displayAllFitnessEntries();
+                $('#fitness-table').removeClass('hide-display');
+                $('.data-controls').removeClass('hide-display');
+                $('.dash-buttons').removeClass('hide-display');
+                $('form.add-entry').find('#fitness-add-date').val('');
+                $('form.add-entry').find('#fitness-add-workout').val('');
+                $('form.add-entry').find('#fitness-add-duration').val('');
+                $('form.add-entry').find('#fitness-add-notes').val('');
+            })
+        })
+    }
+
 
     retrieveFinanceData();
     updateFinanceData();
@@ -901,5 +937,6 @@
     deleteTransportEntry();
     createFinanceEntry();
     createHealthEntry();
+    createFitnessEntry();
 
 })(jQuery);
