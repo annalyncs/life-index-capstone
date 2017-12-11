@@ -140,6 +140,7 @@
         $('.data-controls').removeClass('hide-display');
         $('.data-table').removeClass('hide-display');
         $('.dash-buttons').removeClass('hide-display');
+        $('.add-entry').addClass('hide-display');
         $('.data-rows').html('');
         displayAllFinanceEntries();
     });
@@ -189,6 +190,7 @@
         $('#health-data').addClass('hide-display');
         $('#fitness-data').addClass('hide-display');
         $('#transport-data').addClass('hide-display');
+        $('.add-entry').addClass('hide-display');
         $('.data-rows').html(' ');
         $('#finance-entry').html(' ');
         $('#health-entry').html(' ');
@@ -219,6 +221,7 @@
         $('.data-table').addClass('hide-display');
         $('.dash-buttons').addClass('hide-display');
         $('#add-entry-finance').removeClass('hide-display');
+        $('.add-entry').removeClass('hide-display');
     });
 
 //    $('.finance-submit').on('click', function(e){
@@ -233,6 +236,7 @@
         $('.data-table').addClass('hide-display');
         $('.dash-buttons').addClass('hide-display');
         $('#add-entry-health').removeClass('hide-display');
+        $('.add-entry').removeClass('hide-display');
     });
 
 //    $('.health-submit').on('click', function(e){
@@ -247,6 +251,7 @@
         $('.data-table').addClass('hide-display');
         $('.dash-buttons').addClass('hide-display');
         $('#add-entry-fitness').removeClass('hide-display');
+        $('.add-entry').removeClass('hide-display');
     });
 
 //    $('.fitness-submit').on('click', function(e){
@@ -261,6 +266,7 @@
         $('.data-table').addClass('hide-display');
         $('.dash-buttons').addClass('hide-display');
         $('#add-entry-transport').removeClass('hide-display');
+        $('.add-entry').removeClass('hide-display');
     });
 
 //    $('.transport-submit').on('click', function(e){
@@ -318,19 +324,22 @@
             .done(function(data) {
             let financeEntry =
                 `<div id="finance-entry">
-                    <h2>Date:</h2>
+                    <h1>Finance</h1>
+                    <h2>View Entry</h2>
+                    <h3>Date:</h3>
                         <p>${data.date}</p>
-                    <h2>Category:</h2>
+                    <h3>Category:</h3>
                         <p>${data.category}</p>
-                    <h2>Cost:</h2>
+                    <h3>Cost:</h3>
                         <p>${data.cost}</p>
-                    <h2>Notes:</h2>
+                    <h3>Notes:</h3>
                         <p>${data.notes}</p>
                 </div>`;
 
             $('#finance-entry').removeClass('hide-display');
             $('#finance-table').addClass('hide-display');
             $('#finance-main').html(financeEntry);
+            $('#finance-main').removeClass('hide-display');
         });
     });
 
@@ -344,17 +353,20 @@
             .done(function(data) {
             let healthEntry =
                 `<div id="health-entry">
-                <h2>Date:</h2>
+                <h1>Health</h1>
+                <h2>View Entry</h2>
+                <h3>Date:</h3>
                     <p>${data.date}</p>
-                <h2>Category:</h2>
+                <h3>Category:</h3>
                     <p>${data.category}</p>
-                <h2>Notes:</h2>
+                <h3>Notes:</h3>
                     <p>${data.notes}</p>
                 </div>`;
 
             $('#health-entry').removeClass('hide-display');
             $('#health-table').addClass('hide-display');
             $('#health-main').html(healthEntry);
+            $('#health-main').removeClass('hide-display');
         });
     });
 
@@ -368,19 +380,22 @@
             .done(function(data) {
             let fitnessEntry =
                 `<div id="fitness-entry">
-                    <h2>Date:</h2>
+                    <h1>Fitness</h1>
+                    <h2>View Entry</h2>
+                    <h3>Date:</h3>
                         <p>${data.date}</p>
-                    <h2>Workout:</h2>
+                    <h3>Workout:</h3>
                         <p>${data.workout}</p>
-                    <h2>Duration:</h2>
+                    <h3>Duration:</h3>
                         <p>${data.duration}</p>
-                    <h2>Notes:</h2>
+                    <h3>Notes:</h3>
                         <p>${data.notes}</p>
                     </div>`;
 
             $('#fitness-entry').removeClass('hide-display');
             $('#fitness-table').addClass('hide-display');
             $('#fitness-main').html(fitnessEntry);
+            $('#fitness-main').removeClass('hide-display');
         });
     });
 
@@ -394,19 +409,22 @@
             .done(function(data) {
             let transportEntry =
                 `<div id="transport-entry">
-                <h2>Date:</h2>
+                <h1>Finance</h1>
+                <h2>View Entry</h2>
+                <h3>Date:</h3>
                     <p>${data.date}</p>
-                <h2>Type:</h2>
+                <h3>Type:</h3>
                     <p>${data.type}</p>
-                <h2>Miles:</h2>
+                <h3>Miles:</h3>
                     <p>${data.miles}</p>
-                <h2>Notes:</h2>
+                <h3>Notes:</h3>
                     <p>${data.notes}</p>
                 </div>`;
 
             $('#transport-entry').removeClass('hide-display');
             $('#transport-table').addClass('hide-display');
             $('#transport-main').html(transportEntry);
+            $('#transport-main').removeClass('hide-display');
         });
     });
 
