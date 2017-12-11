@@ -853,6 +853,39 @@
         })
     }
 
+    function createHealthEntry() {
+        $('.add-entry').on('click', '.health-submit', function(e) {
+            e.preventDefault();
+            let dateInput = $(this).parent().find('#health-add-date').val();
+            let categoryInput = $(this).parent().find('#health-add-category').val();
+            let notesInput = $(this).parent().find('#health-add-notes').val();
+
+            let dataInput = {
+                'date': dateInput,
+                'category': categoryInput,
+                'notes': notesInput
+            };
+
+            $.ajax({
+                method: "POST",
+                url: `${HEALTH_URL}/new`,
+                contentType: 'application/json',
+                data: JSON.stringify(dataInput)
+            })
+                .done(function(data) {
+                $('#add-entry-health').addClass('hide-display');
+                $('.data-rows').html('');
+                displayAllHealthEntries();
+                $('#health-table').removeClass('hide-display');
+                $('.data-controls').removeClass('hide-display');
+                $('.dash-buttons').removeClass('hide-display');
+                $('form.add-entry').find('#health-add-date').val('');
+                $('form.add-entry').find('#health-add-category').val('');
+                $('form.add-entry').find('#health-add-notes').val('');
+            })
+        })
+    }
+
 
     retrieveFinanceData();
     updateFinanceData();
@@ -867,5 +900,6 @@
     deleteHealthEntry();
     deleteTransportEntry();
     createFinanceEntry();
+    createHealthEntry();
 
 })(jQuery);
