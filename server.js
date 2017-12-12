@@ -304,7 +304,7 @@ app.put('/health/:id', jsonParser, (req,res) => {
     }, {
         new: true
     })
-        .then(updatedFinance => res.status(204).end())
+        .then(updatedHealth => res.status(204).end())
         .catch(err => res.status(500).json({
         message: 'Something went wrong'
     }));
@@ -325,7 +325,7 @@ app.put('/fitness/:id', jsonParser, (req,res) => {
     }, {
         new: true
     })
-        .then(updatedFinance => res.status(204).end())
+        .then(updatedFitness => res.status(204).end())
         .catch(err => res.status(500).json({
         message: 'Something went wrong'
     }));
@@ -346,7 +346,7 @@ app.put('/transport/:id', jsonParser, (req,res) => {
     }, {
         new: true
     })
-        .then(updatedFinance => res.status(204).end())
+        .then(updatedTransport => res.status(204).end())
         .catch(err => res.status(500).json({
         message: 'Something went wrong'
     }));
