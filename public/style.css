@@ -333,9 +333,12 @@ img.icon {
 }
 
 
-form h1 {
+form h2 {
     color: steelblue;
-    margin-bottom: 0;
+}
+
+form h1 {
+    margin-bottom:0;
 }
 
 h2.add-entry-new {
@@ -373,6 +376,35 @@ select {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 200px;
+}
+
+/*****VIEW ENTRY FORM*****/
+#finance-entry h3,
+#finance-entry p,
+#health-entry h3,
+#health-entry p,
+#fitness-entry h3,
+#fitness-entry p,
+#transport-entry h3,
+#transport-entry p{
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-bottom: 10px;
+}
+
+#finance-entry h3,
+#health-entry h3,
+#fitness-entry h3,
+#transport-entry h3 {
+    color: steelblue;
+}
+
+#finance-entry h2,
+#health-entry h2,
+#fitness-entry h2,
+#transport-entry h2 {
+    margin-bottom: 20px;
 }
 
 /*****FOOTER*****/

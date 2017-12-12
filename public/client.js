@@ -224,11 +224,6 @@
         $('.add-entry').removeClass('hide-display');
     });
 
-//    $('.finance-submit').on('click', function(e){
-//        e.preventDefault();
-//        $('#finance-data').removeClass('hide-display');
-//        $('#add-entry-finance').addClass('hide-display');
-//    });
 
     $('#health-add').on('click', function() {
         $('.data-controls').addClass('hide-display');
@@ -239,12 +234,6 @@
         $('.add-entry').removeClass('hide-display');
     });
 
-//    $('.health-submit').on('click', function(e){
-//        e.preventDefault();
-//        $('#health-data').removeClass('hide-display');
-//        $('#add-entry-health').addClass('hide-display');
-//    });
-
     $('#fitness-add').on('click', function() {
         $('.data-controls').addClass('hide-display');
         $('#fitness-main').addClass('hide-display');
@@ -254,11 +243,6 @@
         $('.add-entry').removeClass('hide-display');
     });
 
-//    $('.fitness-submit').on('click', function(e){
-//        e.preventDefault();
-//        $('#fitness-data').removeClass('hide-display');
-//        $('#add-entry-fitness').addClass('hide-display');
-//    });
 
     $('#transport-add').on('click', function() {
         $('.data-controls').addClass('hide-display');
@@ -269,11 +253,6 @@
         $('.add-entry').removeClass('hide-display');
     });
 
-//    $('.transport-submit').on('click', function(e){
-//        e.preventDefault();
-//        $('#transport-data').removeClass('hide-display');
-//        $('#add-entry-transport').addClass('hide-display');
-//    });
 
     //Click on Back button on add entry form
     //to go back to dashboard
@@ -327,11 +306,11 @@
                     <h1>Finance</h1>
                     <h2>View Entry</h2>
                     <h3>Date:</h3>
-                        <p>${data.date}</p>
+                        <p>${data.date}</p><br>
                     <h3>Category:</h3>
-                        <p>${data.category}</p>
+                        <p>${data.category}</p><br>
                     <h3>Cost:</h3>
-                        <p>${data.cost}</p>
+                        <p>${data.cost}</p><br>
                     <h3>Notes:</h3>
                         <p>${data.notes}</p>
                 </div>`;
@@ -356,9 +335,9 @@
                 <h1>Health</h1>
                 <h2>View Entry</h2>
                 <h3>Date:</h3>
-                    <p>${data.date}</p>
+                    <p>${data.date}</p><br>
                 <h3>Category:</h3>
-                    <p>${data.category}</p>
+                    <p>${data.category}</p><br>
                 <h3>Notes:</h3>
                     <p>${data.notes}</p>
                 </div>`;
@@ -383,11 +362,11 @@
                     <h1>Fitness</h1>
                     <h2>View Entry</h2>
                     <h3>Date:</h3>
-                        <p>${data.date}</p>
+                        <p>${data.date}</p><br>
                     <h3>Workout:</h3>
-                        <p>${data.workout}</p>
+                        <p>${data.workout}</p><br>
                     <h3>Duration:</h3>
-                        <p>${data.duration}</p>
+                        <p>${data.duration}</p><br>
                     <h3>Notes:</h3>
                         <p>${data.notes}</p>
                     </div>`;
@@ -412,11 +391,11 @@
                 <h1>Finance</h1>
                 <h2>View Entry</h2>
                 <h3>Date:</h3>
-                    <p>${data.date}</p>
+                    <p>${data.date}</p><br>
                 <h3>Type:</h3>
-                    <p>${data.type}</p>
+                    <p>${data.type}</p><br>
                 <h3>Miles:</h3>
-                    <p>${data.miles}</p>
+                    <p>${data.miles}</p><br>
                 <h3>Notes:</h3>
                     <p>${data.notes}</p>
                 </div>`;
@@ -606,6 +585,7 @@
                 url: `${FITNESS_URL}/${idParameter}`
             })
                 .done(function(data) {
+                console.log(data);
                 let fitnessUpdateForm =
                     `<div id="update-entry-fitness" class="add-entry">
                     <form class="add-entry" id=${idParameter}>
