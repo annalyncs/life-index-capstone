@@ -413,7 +413,7 @@
 
     function retrieveFinanceData() {
         $('#finance-table').on('click', '.edit-icon', function() {
-            let idParameter =$(this).attr('id');
+            let idParameter = $(this).attr('id');
             $('#finance-table').addClass('hide-display');
             $('.data-controls').addClass('hide-display');
 
@@ -428,30 +428,29 @@
                                 <h1 class="add-entry-data">Finance</h1>
                                 <h2 class="add-entry-new">Update Entry</h2>
                                 <label for="date">Date</label><br>
-                                <input type="text" name="date" value=${data.date} id="finance-date"><br>
+                                <input type="text" name="date" value="${data.date}" id="finance-date"><br>
                                 <label for="category">Category</label><br>
-                                <select name="category" value=${data.category} id="finance-category">
-                                    <option>Apparel, Shoes & Accessories</option>
-                                    <option>Dining & Drinking</option>
-                                    <option>Entertainment</option>
-                                    <option>Groceries</option>
-                                    <option>Household Products</option>
-                                    <option>Medical & Health</option>
-                                    <option>Transportation</option>
-                                    <option>Personal Care</option>
-                                    <option>Professional Services</option>
-                                    <option>Other</option>
+                                <select name="category" value="${data.category}" id="finance-category">
+                                    <option value="Apparel, Shoes & Accessories">Apparel, Shoes & Accessories</option>
+                                    <option value="Dining & Drinking">Dining & Drinking</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Groceries">Groceries</option>
+                                    <option value="Household Products">Household Products</option>
+                                    <option value="Medical & Health">Medical & Health</option>
+                                    <option value="Transportation">Transportation</option>
+                                    <option value="Personal Care">Personal Care</option>
+                                    <option value="Professional Services">Professional Services</option>
+                                    <option value="Other">Other</option>
                                 </select><br>
                                 <label for="cost">Cost</label><br>
-                                <input type="text" name="cost" value=${data.cost} id="finance-cost"><br>
+                                <input type="text" name="cost" value="${data.cost}" id="finance-cost"><br>
                                 <label for="notes">Notes</label><br>
-                                <input type="text" name="notes" value=${data.notes} id="finance-notes"><br>
+                                <input type="text" name="notes" value="${data.notes}" id="finance-notes"><br>
                                 <input type="submit" value="Update" class="add-submit finance-update">
                             </form>
-                    </div>`;
-                $('#finance-main').html(financeUpdateForm);
-                $('#update-entry-finance').removeClass('hide-display');
-            })
+                        </div>`;
+                    $('#finance-main').html(financeUpdateForm);
+                    $('#update-entry-finance').removeClass('hide-display');
                 .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
                 console.log(error);
@@ -514,16 +513,16 @@
                         <h1 class="add-entry-data">Health</h1>
                         <h2 class="add-entry-new">Update Entry</h2>
                         <label for="date">Date</label><br>
-                            <input type="text" name="date" value=${data.date} id="health-date"><br>
+                            <input type="text" name="date" value="${data.date}" id="health-date"><br>
                         <label for="category">Category</label><br>
-                        <select name="category" value=${data.category} id="health-category">
+                        <select name="category" value="${data.category}" id="health-category">
                             <option>Appointment</option>
                             <option>Mood</option>
                             <option>Diet</option>
                             <option>Other</option>
                         </select><br>
                         <label for="notes">Notes</label><br>
-                            <input type="text" name="notes" value=${data.notes} id="health-notes"><br>
+                            <input type="text" name="notes" value="${data.notes}" id="health-notes"><br>
                         <input type="submit" value="Update" class="add-submit health-update">
                         </form>
                     </div>`;
@@ -592,9 +591,9 @@
                         <h1 class="add-entry-data">Fitness</h1>
                         <h2 class="add-entry-new">Update Entry</h2>
                         <label for="date">Date</label><br>
-                            <input type="text" name="date" value=${data.date} id="fitness-date"><br>
+                            <input type="text" name="date" value="${data.date}" id="fitness-date"><br>
                         <label for="workout">Workout</label><br>
-                        <select name="workout" value=${data.workout} id="fitness-workout">
+                        <select name="workout" value="${data.workout}" id="fitness-workout">
                             <option>Aerobic</option>
                             <option>Strength</option>
                             <option>Balance</option>
@@ -602,9 +601,9 @@
                             <option>Other</option>
                         </select><br>
                         <label for="duration">Duration</label><br>
-                            <input type="text" name="duration" value=${data.duration} id="fitness-duration"><br>
+                            <input type="text" name="duration" value="${data.duration}" id="fitness-duration"><br>
                         <label for="notes">Notes</label><br>
-                            <input type="text" name="notes" value=${data.notes} id="fitness-notes"><br>
+                            <input type="text" name="notes" value="${data.notes}" id="fitness-notes"><br>
                         <input type="submit" value="Update" class="add-submit fitness-update">
                     </form>
                     </div>`;
@@ -675,9 +674,9 @@
                             <h1 class="add-entry-data">Transport</h1>
                             <h2 class="add-entry-new">Update Entry</h2>
                             <label for="date">Date</label><br>
-                                <input type="text" name="date" value=${data.date} id="transport-date"><br>
+                                <input type="text" name="date" value="${data.date}" id="transport-date"><br>
                             <label for="type">Type</label><br>
-                            <select name="type" value=${data.type} id="transport-type">
+                            <select name="type" value="${data.type}" id="transport-type">
                                 <option>Auto</option>
                                 <option>Bus</option>
                                 <option>Train</option>
@@ -685,9 +684,9 @@
                                 <option>Other</option>
                             </select><br>
                             <label for="Miles">Miles</label><br>
-                                <input type="text" name="miles" value=${data.miles} id="transport-miles"><br>
+                                <input type="text" name="miles" value="${data.miles}" id="transport-miles"><br>
                             <label for="notes">Notes</label><br>
-                                <input type="text" name="notes" value=${data.notes} id="transport-notes"><br>
+                                <input type="text" name="notes" value="${data.notes}" id="transport-notes"><br>
                             <input type="submit" value="Update" class="add-submit transport-update">
                         </form>
                     </div>`;
