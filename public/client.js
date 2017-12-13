@@ -388,7 +388,7 @@
             .done(function(data) {
             let transportEntry =
                 `<div id="transport-entry">
-                <h1>Finance</h1>
+                <h1>Transport</h1>
                 <h2>View Entry</h2>
                 <h3>Date:</h3>
                     <p>${data.date}</p><br>

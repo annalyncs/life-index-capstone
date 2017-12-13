@@ -8,7 +8,7 @@ const should = chai.should();
 
 const {
     Finance
-} = require('../models/finance-model');
+} = require('../models/Finance');
 const {
     app,
     runServer,

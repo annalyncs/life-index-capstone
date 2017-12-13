@@ -17,19 +17,19 @@ const {
 
 const {
     Finance
-} = require('./models/finance-model');
+} = require('./models/Finance');
 
 const {
     Fitness
-} = require('./models/fitness-model');
+} = require('./models/Fitness');
 
 const {
     Health
-} = require('./models/health-model');
+} = require('./models/Health');
 
 const {
     Transport
-} = require('./models/transport-model');
+} = require('./models/Transport');
 
 
 app.use(express.static('public'));
