@@ -4,10 +4,12 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
+const expressValidator = require('express-validator');
 
 mongoose.Promise = global.Promise;
 
 const app = express();
+
 
 
 const {
@@ -31,10 +33,13 @@ const {
     Transport
 } = require('./models/Transport');
 
+const { router: usersRouter } = require('./users');
+
 
 app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
+app.use(expressValidator());
 
 app.get("/", (req, res) => {
     response.sendFile(__dirname + '/public/index.html')
@@ -50,6 +55,8 @@ app.use(function (req, res, next) {
     }
     next();
 });
+
+app.use('/users/', usersRouter);
 
 // retrieve all documents from the database
 app.get('/finances', (req, res) => {
