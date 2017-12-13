@@ -17,7 +17,9 @@ const userSchema = mongoose.Schema({
         type: String,
         required: 'Please supply a name',
         trim: true
-    }
+    }, {
+    collection: 'users'
+}
 })
 
 userSchema.plugin(passportLocalMongoose);

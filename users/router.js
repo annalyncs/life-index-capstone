@@ -2,25 +2,75 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const {User} = require('../models/User');
+const {User} = require('./models');
 
-router.get('/login', (req,res) => {})
+const router = express.Router();
 
-router.get('/register', (req,res) => {})
+const jsonParser = bodyParser.json();
 
-router.post('/register', (req,res,next) => {
-    req.sanitizeBody('name');
-    req.checkBody('name', 'You must supply a name').notEmpty();
-    req.checkBody('username', 'You must supply a username').notEmpty();
-    req.checkBody('password', 'Password cannot be blank!').notEmpty();
-    req.checkBody('password-confirm', 'Confirm password cannot be blank!').notEmpty();
-    req.checkBody('password-confirm', 'Your passwords do not match!').equals(req.body.password);
+// Post to register a new user
+router.post('/', jsonParser, (req, res) => {
+    const requiredFields = ['username', 'password'];
+    const missingField = requiredFields.find(field => !(field in req.body));
 
-    const errors = req.validationErrors();
-    if (errors) {
-        req.json('error', errors.map(err => err.msg));
+    if (missingField) {
+        return res.status(422).json({
+            code: 422,
+            reason: 'ValidationError',
+            message: 'Missing field',
+            location: missingField
+        });
+    }
 
-    };
-})
+    const stringFields = ['username', 'password', 'name'];
+    const nonStringField = stringFields.find(
+        field => field in req.body && typeof req.body[field] !== 'string'
+    );
+
+    if (nonStringField) {
+        return res.status(422).json({
+            code: 422,
+            reason: 'ValidationError',
+            message: 'Incorrect field type: expected string',
+            location: nonStringField
+        });
+    }
+
+
+    return User.find({username})
+        .count()
+        .then(count => {
+        if (count > 0) {
+            // There is an existing user with the same username
+            return Promise.reject({
+                code: 422,
+                reason: 'ValidationError',
+                message: 'Username already taken',
+                location: 'username'
+            });
+        }
+        // If there is no existing user, hash the password
+        return User.hashPassword(password);
+    })
+        .then(hash => {
+        return User.create({
+            username,
+            password: hash,
+            firstName,
+            lastName
+        });
+    })
+        .then(user => {
+        return res.status(201).json(user.serialize());
+    })
+        .catch(err => {
+        // Forward validation errors on to the client, otherwise give a 500
+        // error because something unexpected has happened
+        if (err.reason === 'ValidationError') {
+            return res.status(err.code).json(err);
+        }
+        res.status(500).json({code: 500, message: 'Internal server error'});
+    });
+});
 
 module.exports = {router};

@@ -4,7 +4,8 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-const expressValidator = require('express-validator');
+const passport = require('passport');
+
 
 mongoose.Promise = global.Promise;
 
@@ -34,6 +35,7 @@ const {
 } = require('./models/Transport');
 
 const { router: usersRouter } = require('./users');
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 
 
 app.use(express.static('public'));
@@ -56,7 +58,13 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use('/users/', usersRouter);
+passport.use(localStrategy);
+passport.use(jwtStrategy);
+
+app.use('users/', usersRouter);
+app.use('/auth/', authRouter);
+
+const jwtAuth = passport.authenticate('jwt', { session: false });
 
 // retrieve all documents from the database
 app.get('/finances', (req, res) => {
