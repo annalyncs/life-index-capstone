@@ -451,6 +451,7 @@
                         </div>`;
                     $('#finance-main').html(financeUpdateForm);
                     $('#update-entry-finance').removeClass('hide-display');
+            })
                 .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
                 console.log(error);
