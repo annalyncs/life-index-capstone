@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: Do02PAAfloN/KQwm3ZAMnefxw5aylpOKXVfexgriML9xOn8Tz0byGNZIvFI4kg0yNwJu9lqvVJSfeMxMQdgG4UNN2yUfL9+G092/cl7MG9mViYZmelEipTpFo/P428jJx/uRFL+ngpWaqa01JeoqyH4Q33pAfswPeha27lu1pOE4k8PAjCFrpKEjRmt8Tv0qqgz8ycUUPzFh8PAY3wx71IpoXwAwQapUn9pTlHjUfFuIKtfVTRGLM6NbNQCgg8rr3fIosU4Y8UcBzAGQKzGIe+PWCYx6v7zKEPQ1+GFGcXcfcuhOkmuI8P75XWMVs4AVg3GcLcmfY0bZ9MiRMtG5qiTDyvkfBlMzExwGD23MxYgFirPL1Uy7ZAG9bxFxWATBjR7pSVH9H7pmj1roLKIM7Qi6CJ+3nyAlHgrwlJq61NZuWU15ccAtlo755nAiccue3Dw6zBK++pB8Xrv31GkVhevVfxNs+DIFaLq/MlaND7avs971z+OpJHnOX/ZOzzERIKFed1LlSUy2PoeU1glhHA9QS9KKVyJnFpEKLeuPWy+mJ2WX9gqBjhO3YYOsTBGY07PzUro5Cj+jJgCkA2miaO6D7NGQ/dXMIepnnUrDJGoOS3iviS1pMr1Gj+4NpaqKReSZRtZq2JWpdFy7x9kC/vDjaxCkGbIuMO77/q7miUM=
+  app: immense-beach-66533
+  on:
+    repo: annalyncs/life-index-capstone
