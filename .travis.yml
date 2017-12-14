@@ -7,3 +7,5 @@ deploy:
   app: immense-beach-66533
   on:
     repo: annalyncs/life-index-capstone
+notifications:
+    email: false
