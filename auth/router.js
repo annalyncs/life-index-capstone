@@ -1,4 +1,3 @@
-'use strict';
 const express = require('express');
 const passport = require('passport');
 const bodyParser = require('body-parser');
@@ -17,6 +16,7 @@ const createAuthToken = function(user) {
 
 const localAuth = passport.authenticate('local', {session: false});
 router.use(bodyParser.json());
+
 // The user provides a username and password to login
 router.post('/login', localAuth, (req, res) => {
     const authToken = createAuthToken(req.user.serialize());

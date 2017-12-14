@@ -7,10 +7,8 @@ const jsonParser = bodyParser.json();
 const passport = require('passport');
 
 
-mongoose.Promise = global.Promise;
 
 const app = express();
-
 
 
 const {
@@ -34,14 +32,16 @@ const {
     Transport
 } = require('./models/Transport');
 
-const { router: usersRouter } = require('./users');
-const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+const { router: usersRouter } = require('./users/router');
+const { router: authRouter } = require('./auth/router');
+const { localStrategy, jwtStrategy } = require('./auth/strategies');
 
+
+mongoose.Promise = global.Promise;
 
 app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
-app.use(expressValidator());
 
 app.get("/", (req, res) => {
     response.sendFile(__dirname + '/public/index.html')
@@ -61,10 +61,17 @@ app.use(function (req, res, next) {
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
-app.use('users/', usersRouter);
+app.use('/users/', usersRouter);
 app.use('/auth/', authRouter);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
+
+// A protected endpoint which needs a valid JWT to access it
+app.get('/api/protected', jwtAuth, (req, res) => {
+    return res.json({
+        data: 'rosebud'
+    });
+});
 
 // retrieve all documents from the database
 app.get('/finances', (req, res) => {

@@ -6,6 +6,7 @@
     let HEALTH_URL ='/health';
     let FITNESS_URL = 'fitness';
     let TRANSPORT_URL = '/transport';
+    let USER_URL = '/users/';
 
     function displayAllFinanceEntries() {
         $.ajax({
@@ -108,26 +109,14 @@
         $('nav').addClass('hide-display');
     })
 
-    $('#sign-up').on('click', function() {
-        $('.start-page').addClass('hide-display');
-        $('.about-page').addClass('hide-display');
-        $('#sign-up-form').removeClass('hide-display');
-        $('nav').addClass('hide-display');
-    })
+        $('#sign-up').on('click', function() {
+            $('.start-page').addClass('hide-display');
+            $('.about-page').addClass('hide-display');
+            $('#sign-up-form').removeClass('hide-display');
+            $('nav').addClass('hide-display');
+        })
 
-    //submit sign up or sign in form
-    //redirect to dashboard
-    $('.sign-in-submit').on('click', function(e) {
-        e.preventDefault();
-        $('#sign-in-form').addClass('hide-display');
-        $('.dashboard').removeClass('hide-display');
-    });
 
-    $('.sign-up-submit').on('click', function(e) {
-        e.preventDefault();
-        $('#sign-up-form').addClass('hide-display');
-        $('.dashboard').removeClass('hide-display');
-    });
 
     //on the dashboard click on an option
     //be redirected to that page
@@ -964,6 +953,59 @@
     }
 
 
+    //submit sign up or sign in form
+    //redirect to dashboard
+//    $('.sign-in-submit').on('click', function(e) {
+//        e.preventDefault();
+//        $('#sign-in-form').addClass('hide-display');
+//        $('.dashboard').removeClass('hide-display');
+//    });
+
+//    $('.sign-up-submit').on('click', function(e) {
+//        e.preventDefault();
+//        $('#sign-up-form').addClass('hide-display');
+//        $('.dashboard').removeClass('hide-display');
+//    });
+
+
+    function createUser() {
+        $('.sign-up-submit').on('click', function(e) {
+            e.preventDefault();
+            let nameInput = $(this).parent().find('#name-input').val();
+            let usernameInput = $(this).parent().find('#username-input').val();
+            let passwordInput = $(this).parent().find('#password-input').val();
+
+
+            let userInput = {
+                'username': usernameInput,
+                'name': nameInput,
+                'password': passwordInput
+            };
+
+            $.ajax({
+                url: USER_URL,
+                method: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(userInput)
+            })
+            .done(function (data) {
+                console.log('new user created');
+                $('#sign-up-form').addClass('hide-display');
+                $('.dashboard').removeClass('hide-display');
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+        });
+    }
+
+
+
+
+
     retrieveFinanceData();
     updateFinanceData();
     retrieveHealthData();
@@ -980,5 +1022,6 @@
     createHealthEntry();
     createFitnessEntry();
     createTransportEntry();
+    createUser();
 
 })(jQuery);

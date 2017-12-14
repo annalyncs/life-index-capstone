@@ -1,8 +1,7 @@
-'use strict';
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const {User} = require('./models');
+const {User} = require('../models/User');
 
 const router = express.Router();
 
@@ -36,6 +35,7 @@ router.post('/', jsonParser, (req, res) => {
         });
     }
 
+    let {username, password, name = ''} = req.body;
 
     return User.find({username})
         .count()
@@ -56,8 +56,7 @@ router.post('/', jsonParser, (req, res) => {
         return User.create({
             username,
             password: hash,
-            firstName,
-            lastName
+            name
         });
     })
         .then(user => {

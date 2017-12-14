@@ -1,15 +1,13 @@
-const mongoose = require('mongoose');
+'use strict';
+const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose')
+;
 mongoose.Promise = global.Promise;
 
-const validator = require('validator');
-const mongodbErrorHandler = require('mongoose-mongodb-errors');
-const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = mongoose.Schema({
     username: {
         type: String,
-        unique: true,
-        lowercase: true,
         trim: true,
         required: 'Please supply a username'
     },
@@ -17,15 +15,33 @@ const userSchema = mongoose.Schema({
         type: String,
         required: 'Please supply a name',
         trim: true
-    }, {
-    collection: 'users'
-}
-})
+    },
+    password: {
+        type: String,
+        required: true
+    }},{
+        collection: 'users'
+    });
 
-userSchema.plugin(passportLocalMongoose);
-userSchema.plugin(mongodbErrorHandler);
+userSchema.methods.serialize = function() {
+    return {
+        username: this.username || '',
+        name: this.name || '',
+    };
+};
+
+userSchema.methods.validatePassword = function(password) {
+    return bcrypt.compare(password, this.password);
+};
+
+userSchema.statics.hashPassword = function(password) {
+    return bcrypt.hash(password, 10);
+};
+
 const User = mongoose.model('User', userSchema);
+
+
 
 module.exports = {
     User
-}
+};
