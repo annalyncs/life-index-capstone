@@ -1029,7 +1029,6 @@
 
 
 
-
     retrieveFinanceData();
     updateFinanceData();
     retrieveHealthData();
