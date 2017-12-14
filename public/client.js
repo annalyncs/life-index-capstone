@@ -7,6 +7,7 @@
     let FITNESS_URL = 'fitness';
     let TRANSPORT_URL = '/transport';
     let USER_URL = '/users/';
+    let USER_AUTH_URL = '/auth/login';
 
     function displayAllFinanceEntries() {
         $.ajax({
@@ -953,21 +954,7 @@
     }
 
 
-    //submit sign up or sign in form
-    //redirect to dashboard
-//    $('.sign-in-submit').on('click', function(e) {
-//        e.preventDefault();
-//        $('#sign-in-form').addClass('hide-display');
-//        $('.dashboard').removeClass('hide-display');
-//    });
-
-//    $('.sign-up-submit').on('click', function(e) {
-//        e.preventDefault();
-//        $('#sign-up-form').addClass('hide-display');
-//        $('.dashboard').removeClass('hide-display');
-//    });
-
-
+    //create user
     function createUser() {
         $('.sign-up-submit').on('click', function(e) {
             e.preventDefault();
@@ -1003,6 +990,43 @@
     }
 
 
+    //login to app
+    function loginApp() {
+        let usernameInput = $(this).parent().find('#login-username').val();
+        let passwordInput = $(this).parent().find('#login-password').val();
+
+        let userInput = {
+               'username': usernameInput,
+               'password': passwordInput
+           };
+
+        $('.sign-in-submit').click(function (e) {
+            e.preventDefault();
+            $('#sign-in-form').addClass('hide-display');
+            $('.dashboard').removeClass('hide-display');
+            console.log('logging in');
+
+            $.ajax({
+                url: USER_AUTH_URL,
+                method: 'POST',
+                username: usernameInput,
+                password: passwordInput,
+            })
+            .done(function(data) {
+                console.log('logged in');
+                console.log(data);
+                $('#sign-in-form').addClass('hide-display');
+                $('.dashboard').removeClass('hide-display');
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+            });
+        });
+    }
+
+
 
 
 
@@ -1023,5 +1047,6 @@
     createFitnessEntry();
     createTransportEntry();
     createUser();
+    loginApp();
 
 })(jQuery);
