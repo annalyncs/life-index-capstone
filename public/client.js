@@ -1012,11 +1012,12 @@
             })
             .done(function(data) {
                 console.log(data);
-                localStorage.setItem('token', data.authToken);
                 $('#sign-in-form').addClass('hide-display');
                 $('.dashboard').removeClass('hide-display');
                 $('#sign-in-form').addClass('hide-display');
                 $('.dashboard').removeClass('hide-display');
+                $('.sign-in-submit').parent().find('#login-username').val('');
+                $('.sign-in-submit').parent().find('#login-password').val('');
             })
             .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
