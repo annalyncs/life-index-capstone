@@ -992,29 +992,29 @@
 
     //login to app
     function loginApp() {
-        let usernameInput = $(this).parent().find('#login-username').val();
-        let passwordInput = $(this).parent().find('#login-password').val();
-
-        let userInput = {
-               'username': usernameInput,
-               'password': passwordInput
-           };
 
         $('.sign-in-submit').click(function (e) {
             e.preventDefault();
-            $('#sign-in-form').addClass('hide-display');
-            $('.dashboard').removeClass('hide-display');
+            let usernameInput = $(this).parent().find('#login-username').val();
+            let passwordInput = $(this).parent().find('#login-password').val();
+            let userInput = {
+                'username': usernameInput,
+                'password': passwordInput
+            };
             console.log('logging in');
 
             $.ajax({
                 url: USER_AUTH_URL,
                 method: 'POST',
-                username: usernameInput,
-                password: passwordInput,
+                dataType: 'json',
+                data: JSON.stringify(userInput),
+                contentType: 'application/json'
             })
             .done(function(data) {
-                console.log('logged in');
                 console.log(data);
+                localStorage.setItem('token', data.authToken);
+                $('#sign-in-form').addClass('hide-display');
+                $('.dashboard').removeClass('hide-display');
                 $('#sign-in-form').addClass('hide-display');
                 $('.dashboard').removeClass('hide-display');
             })
