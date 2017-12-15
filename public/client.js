@@ -1006,7 +1006,6 @@
             $.ajax({
                 url: USER_AUTH_URL,
                 method: 'POST',
-                dataType: 'json',
                 data: JSON.stringify(userInput),
                 contentType: 'application/json'
             })
