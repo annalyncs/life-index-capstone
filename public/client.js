@@ -7,7 +7,7 @@
     let FITNESS_URL = 'fitness';
     let TRANSPORT_URL = '/transport';
     let USER_URL = '/users/';
-    let USER_AUTH_URL = '/auth/login';
+    let USER_AUTH_URL = '/login';
 
     function displayAllFinanceEntries() {
         $.ajax({
