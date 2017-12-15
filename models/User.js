@@ -10,11 +10,6 @@ const userSchema = mongoose.Schema({
         trim: true,
         required: 'Please supply a username'
     },
-    name: {
-        type: String,
-        required: 'Please supply a name',
-        trim: true
-    },
     password: {
         type: String,
         required: true
@@ -25,7 +20,6 @@ const userSchema = mongoose.Schema({
 userSchema.methods.serialize = function() {
     return {
         username: this.username || '',
-        name: this.name || '',
     };
 };
 

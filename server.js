@@ -58,7 +58,8 @@ app.use(function (req, res, next) {
 });
 
 
-app.use('/users/', usersRouter);
+app.use('/users/create', usersRouter);
+app.use('/', usersRouter);
 
 
 // A protected endpoint which needs a valid JWT to access it

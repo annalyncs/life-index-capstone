@@ -81,7 +81,6 @@ router.post('/', (req, res) => {
             .create({
             username: username,
             password: hash,
-            name: name
         })
     })
         .then(user => {
