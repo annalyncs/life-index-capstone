@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const healthSchema = mongoose.Schema({
+    user: {
+        type: String,
+        required: false
+    },
     date: String,
     category: String,
     notes: String

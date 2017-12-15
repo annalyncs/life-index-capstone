@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const transportSchema = mongoose.Schema({
+    user: {
+        type: String,
+        required: false
+    },
     date: String,
     type: String,
     miles: String,

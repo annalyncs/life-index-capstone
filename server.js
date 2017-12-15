@@ -62,22 +62,14 @@ app.use('/users/create', usersRouter);
 app.use('/', usersRouter);
 
 
-// A protected endpoint which needs a valid JWT to access it
-app.get('/private',
-        passport.authenticate('digest', { session: false }),
-        function(req, res) {
-    res.json(req.user);
-});
-
 app.get('/logout', function (req, res){
     req.logout();
-    req.session.destroy(function (err) {
-        res.redirect('/');
-    });
 });
 
 // retrieve all documents from the database
-app.get('/finances', (req, res) => {
+app.get('/finances',
+        passport.authenticate('basic', { session: false }),
+        function(req, res) {
     Finance
         .find()
         .then(finances => {
@@ -91,7 +83,10 @@ app.get('/finances', (req, res) => {
         });
 });
 
-app.get('/health', (req, res) => {
+
+app.get('/health',
+        passport.authenticate('basic', { session: false }),
+        function(req, res) {
     Health
         .find()
         .then(health => {
@@ -105,7 +100,9 @@ app.get('/health', (req, res) => {
     });
 });
 
-app.get('/fitness', (req, res) => {
+app.get('/fitness',
+        passport.authenticate('basic', { session: false }),
+        function(req, res) {
     Fitness
         .find()
         .then(fitness => {
@@ -119,7 +116,9 @@ app.get('/fitness', (req, res) => {
     });
 });
 
-app.get('/transport', (req, res) => {
+app.get('/transport',
+        passport.authenticate('basic', { session: false }),
+        function(req, res) {
     Transport
         .find()
         .then(transport => {

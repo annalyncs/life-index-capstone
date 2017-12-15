@@ -29,6 +29,11 @@
                     });
                 $('#finance-table').removeClass('hide-display');
                 $('#finance-table').append(financeTableRows);
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
         });
     };
 
@@ -51,6 +56,11 @@
                 });
             $('#health-table').removeClass('hide-display');
             $('#health-table').append(healthTableRows);
+        })
+            .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
         });
     };
 
@@ -74,6 +84,11 @@
                 });
             $('#fitness-table').removeClass('hide-display');
             $('#fitness-table').append(fitnessTableRows);
+        })
+            .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
         });
     };
 
@@ -97,6 +112,11 @@
                 });
             $('#transport-table').removeClass('hide-display');
             $('#transport-table').append(transportTableRows);
+        })
+            .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
         });
     };
 
@@ -187,19 +207,6 @@
         $('#fitness-entry').html(' ');
         $('#transport-entry').html(' ');
 
-    });
-
-    //click on logout
-    //redirect back to dashboard
-    $('section').on('click', '.logout', function(){
-        $('.dashboard').addClass('hide-display');
-        $('#finance-data').addClass('hide-display');
-        $('#health-data').addClass('hide-display');
-        $('#fitness-data').addClass('hide-display');
-        $('#transport-data').addClass('hide-display');
-        $('.start-page').removeClass('hide-display');
-        $('.about-page').removeClass('hide-display');
-        $('nav').removeClass('hide-display');
     });
 
     //click on add entry
@@ -958,14 +965,12 @@
     function createUser() {
         $('.sign-up-submit').on('click', function(e) {
             e.preventDefault();
-            let nameInput = $(this).parent().find('#name-input').val();
             let usernameInput = $(this).parent().find('#username-input').val();
             let passwordInput = $(this).parent().find('#password-input').val();
 
 
             let userInput = {
                 'username': usernameInput,
-                'name': nameInput,
                 'password': passwordInput
             };
 
@@ -992,25 +997,24 @@
 
     //login to app
     function loginApp() {
-
-        $('.sign-in-submit').click(function (e) {
+        $('.sign-in-submit').on('click', function(e) {
             e.preventDefault();
             let usernameInput = $(this).parent().find('#login-username').val();
             let passwordInput = $(this).parent().find('#login-password').val();
-            let userInput = {
+
+            let loginInput = {
                 'username': usernameInput,
                 'password': passwordInput
             };
-            console.log('logging in');
 
             $.ajax({
                 url: USER_AUTH_URL,
                 method: 'POST',
-                data: JSON.stringify(userInput),
+                data: JSON.stringify(loginInput),
                 contentType: 'application/json'
             })
-            .done(function(data) {
-                console.log(data);
+            .done(function (data) {
+                console.log('logging in');
                 $('#sign-in-form').addClass('hide-display');
                 $('.dashboard').removeClass('hide-display');
                 $('#sign-in-form').addClass('hide-display');
@@ -1019,14 +1023,43 @@
                 $('.sign-in-submit').parent().find('#login-password').val('');
             })
             .fail(function (jqXHR, error, errorThrown) {
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
             });
         });
     }
 
+    //logout
+    function logoutApp() {
+        $('section').on('click', 'button.logout', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
 
+            $.ajax({
+                url: '/logout',
+                method: 'GET'
+            })
+            .done(function() {
+                //click on logout
+                //redirect back to dashboard
+                console.log('logged out');
+                $('.dashboard').addClass('hide-display');
+                $('#finance-data').addClass('hide-display');
+                $('#health-data').addClass('hide-display');
+                $('#fitness-data').addClass('hide-display');
+                $('#transport-data').addClass('hide-display');
+                $('.start-page').removeClass('hide-display');
+                $('.about-page').removeClass('hide-display');
+                $('nav').removeClass('hide-display');
+            })
+            .fail(function (jqXHR, error, errorThrown) {
+                console.log(jqXHR);
+                console.log(error);
+                console.log(errorThrown);
+            });
+        });
+    }
 
 
     retrieveFinanceData();
@@ -1047,5 +1080,6 @@
     createTransportEntry();
     createUser();
     loginApp();
+    logoutApp();
 
 })(jQuery);

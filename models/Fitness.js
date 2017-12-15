@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const fitnessSchema = mongoose.Schema({
+    user: {
+        type: String,
+        required: false
+    },
     date: String,
     workout: String,
     duration: String,
