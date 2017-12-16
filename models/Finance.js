@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const financeSchema = mongoose.Schema({
-    user: {
+    username: {
         type: String,
         required: false
     },

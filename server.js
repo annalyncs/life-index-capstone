@@ -67,11 +67,11 @@ app.get('/logout', function (req, res){
 });
 
 // retrieve all documents from the database
-app.get('/finances',
+app.get('/finances/:user',
         passport.authenticate('basic', { session: false }),
         function(req, res) {
     Finance
-        .find()
+        .find({username: req.params.user})
         .then(finances => {
             res.json(finances);
         })
@@ -84,11 +84,11 @@ app.get('/finances',
 });
 
 
-app.get('/health',
+app.get('/health/:user',
         passport.authenticate('basic', { session: false }),
         function(req, res) {
     Health
-        .find()
+        .find({username: req.params.user})
         .then(health => {
         res.json(health);
     })
@@ -100,11 +100,11 @@ app.get('/health',
     });
 });
 
-app.get('/fitness',
+app.get('/fitness/:user',
         passport.authenticate('basic', { session: false }),
         function(req, res) {
     Fitness
-        .find()
+        .find({username: req.params.user})
         .then(fitness => {
         res.json(fitness);
     })
@@ -116,11 +116,11 @@ app.get('/fitness',
     });
 });
 
-app.get('/transport',
+app.get('/transport/:user',
         passport.authenticate('basic', { session: false }),
         function(req, res) {
     Transport
-        .find()
+        .find({username: req.params.user})
         .then(transport => {
         res.json(transport);
     })
@@ -133,7 +133,7 @@ app.get('/transport',
 });
 
 //retrieve data by id
-app.get('/finances/:id', (req,res) => {
+app.get('/finances/:id', (req, res) => {
     Finance
         .findById(req.params.id)
         .then(finances => res.json(finances))

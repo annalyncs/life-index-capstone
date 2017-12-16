@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const transportSchema = mongoose.Schema({
-    user: {
+    username: {
         type: String,
         required: false
     },

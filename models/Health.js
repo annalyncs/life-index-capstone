@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const healthSchema = mongoose.Schema({
-    user: {
+    username: {
         type: String,
         required: false
     },

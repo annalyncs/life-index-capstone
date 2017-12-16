@@ -8,11 +8,12 @@
     let TRANSPORT_URL = '/transport';
     let USER_URL = '/users/create';
     let USER_AUTH_URL = '/login';
+    let loggedInUser = '';
 
-    function displayAllFinanceEntries() {
+    function displayAllFinanceEntries(loggedInUser) {
         $.ajax({
             method: 'GET',
-            url: FINANCES_URL
+            url: FINANCES_URL + "/" + loggedInUser
         })
             .done(function(data) {
                 let financeTableRows =
@@ -37,10 +38,10 @@
         });
     };
 
-    function displayAllHealthEntries() {
+    function displayAllHealthEntries(loggedInUser) {
         $.ajax({
             method: 'GET',
-            url: HEALTH_URL
+            url: HEALTH_URL + "/" + loggedInUser
         })
             .done(function(data) {
             let healthTableRows =
@@ -64,10 +65,10 @@
         });
     };
 
-    function displayAllFitnessEntries() {
+    function displayAllFitnessEntries(loggedInUser) {
         $.ajax({
             method: 'GET',
-            url: FITNESS_URL
+            url: FITNESS_URL + "/" + loggedInUser
         })
             .done(function(data) {
             let fitnessTableRows =
@@ -92,10 +93,10 @@
         });
     };
 
-    function displayAllTransportEntries() {
+    function displayAllTransportEntries(loggedInUser) {
         $.ajax({
             method: 'GET',
-            url: TRANSPORT_URL
+            url: TRANSPORT_URL + "/" + loggedInUser
         })
             .done(function(data) {
             let transportTableRows =
@@ -152,7 +153,7 @@
         $('.dash-buttons').removeClass('hide-display');
         $('.add-entry').addClass('hide-display');
         $('.data-rows').html('');
-        displayAllFinanceEntries();
+        displayAllFinanceEntries(loggedInUser);
     });
 
     $('#health-option').on('click', function() {
@@ -164,7 +165,7 @@
         $('.data-table').removeClass('hide-display');
         $('.dash-buttons').removeClass('hide-display');
         $('.data-rows').html('');
-        displayAllHealthEntries();
+        displayAllHealthEntries(loggedInUser);
     });
 
     $('#fitness-option').on('click', function() {
@@ -176,7 +177,7 @@
         $('.data-table').removeClass('hide-display');
         $('.dash-buttons').removeClass('hide-display');
         $('.data-rows').html('');
-        displayAllFitnessEntries();
+        displayAllFitnessEntries(loggedInUser);
     });
 
     $('#transport-option').on('click', function() {
@@ -188,7 +189,7 @@
         $('.data-table').removeClass('hide-display');
         $('.dash-buttons').removeClass('hide-display');
         $('.data-rows').html('');
-        displayAllTransportEntries();
+        displayAllTransportEntries(loggedInUser);
     });
 
 
@@ -266,25 +267,25 @@
     //Click on all entries to display all entires
     $('#finance-data').on('click', '#all-finance-entries', function() {
         $('.data-rows').html(' ');
-        displayAllFinanceEntries();
+        displayAllFinanceEntries(loggedInUser);
         $('#finance-entry').addClass('hide-display');
         });
 
     $('#all-health-entries').on('click', function() {
         $('.data-rows').html(' ');
-        displayAllHealthEntries();
+        displayAllHealthEntries(loggedInUser);
         $('#health-entry').addClass('hide-display');
     });
 
     $('#all-fitness-entries').on('click', function() {
         $('.data-rows').html(' ');
-        displayAllFitnessEntries();
+        displayAllFitnessEntries(loggedInUser);
         $('#fitness-entry').addClass('hide-display');
     });
 
     $('#all-transport-entries').on('click', function() {
         $('.data-rows').html(' ');
-        displayAllTransportEntries();
+        displayAllTransportEntries(loggedInUser);
         $('#transport-entry').addClass('hide-display');
     });
 
@@ -292,12 +293,14 @@
 
     $('#finance-table').on('click', '.view-icon', function() {
         let idParameter =$(this).attr('id');
+        console.log(idParameter);
 
         $.ajax({
             method: 'GET',
             url: `${FINANCES_URL}/${idParameter}`
         })
             .done(function(data) {
+            console.log(data);
             let financeEntry =
                 `<div id="finance-entry">
                     <h1>Finance</h1>
@@ -480,7 +483,7 @@
             })
                 .done(function(data) {
                     $('.data-rows').html('');
-                    displayAllFinanceEntries();
+                    displayAllFinanceEntries(loggedInUser);
                     $('#update-entry-finance').addClass('hide-display');
                     $('#finance-table').removeClass('hide-display');
                     $('.data-controls').removeClass('hide-display');
@@ -556,7 +559,7 @@
             })
                 .done(function(data) {
                 $('.data-rows').html('');
-                displayAllHealthEntries();
+                displayAllHealthEntries(loggedInUser);
                 $('#update-entry-health').addClass('hide-display');
                 $('#health-table').removeClass('hide-display');
                 $('.data-controls').removeClass('hide-display');
@@ -640,7 +643,7 @@
             })
                 .done(function(data) {
                 $('.data-rows').html('');
-                displayAllFitnessEntries();
+                displayAllFitnessEntries(loggedInUser);
                 $('#update-entry-fitness').addClass('hide-display');
                 $('#fitness-table').removeClass('hide-display');
                 $('.data-controls').removeClass('hide-display');
@@ -723,7 +726,7 @@
             })
                 .done(function(data) {
                 $('.data-rows').html('');
-                displayAllTransportEntries();
+                displayAllTransportEntries(loggedInUser);
                 $('#update-entry-transport').addClass('hide-display');
                 $('#transport-table').removeClass('hide-display');
                 $('.data-controls').removeClass('hide-display');
@@ -748,7 +751,7 @@
             })
                 .done(function(data) {
                     $('.data-rows').html('');
-                    displayAllFinanceEntries();
+                    displayAllFinanceEntries(loggedInUser);
             })
                 .fail(function (jqXHR, error, errorThrown) {
                 console.log(jqXHR);
@@ -768,7 +771,7 @@
             })
                 .done(function(data) {
                     $('.data-rows').html('');
-                    displayAllHealthEntries();
+                    displayAllHealthEntries(loggedInUser);
             })
                 .fail(function (jqXHR, error, errorThrown) {
                     console.log(jqXHR);
@@ -787,7 +790,7 @@
             })
                 .done(function(data) {
                     $('.data-rows').html('');
-                    displayAllFitnessEntries();
+                    displayAllFitnessEntries(loggedInUser);
             })
                 .fail(function (jqXHR, error, errorThrown) {
                     console.log(jqXHR);
@@ -807,7 +810,7 @@
             })
                 .done(function(data) {
                     $('.data-rows').html('');
-                    displayAllTransportEntries();
+                    displayAllTransportEntries(loggedInUser);
             })
                 .fail(function (jqXHR, error, errorThrown) {
                     console.log(jqXHR);
@@ -843,7 +846,7 @@
                 .done(function(data) {
                     $('#add-entry-finance').addClass('hide-display');
                     $('.data-rows').html('');
-                    displayAllFinanceEntries();
+                    displayAllFinanceEntries(loggedInUser);
                     $('#finance-table').removeClass('hide-display');
                     $('.data-controls').removeClass('hide-display');
                     $('.dash-buttons').removeClass('hide-display');
@@ -877,7 +880,7 @@
                 .done(function(data) {
                 $('#add-entry-health').addClass('hide-display');
                 $('.data-rows').html('');
-                displayAllHealthEntries();
+                displayAllHealthEntries(loggedInUser);
                 $('#health-table').removeClass('hide-display');
                 $('.data-controls').removeClass('hide-display');
                 $('.dash-buttons').removeClass('hide-display');
@@ -912,7 +915,7 @@
                 .done(function(data) {
                 $('#add-entry-fitness').addClass('hide-display');
                 $('.data-rows').html('');
-                displayAllFitnessEntries();
+                displayAllFitnessEntries(loggedInUser);
                 $('#fitness-table').removeClass('hide-display');
                 $('.data-controls').removeClass('hide-display');
                 $('.dash-buttons').removeClass('hide-display');
@@ -948,7 +951,7 @@
                 .done(function(data) {
                 $('#add-entry-transport').addClass('hide-display');
                 $('.data-rows').html('');
-                displayAllTransportEntries();
+                displayAllTransportEntries(loggedInUser);
                 $('#transport-table').removeClass('hide-display');
                 $('.data-controls').removeClass('hide-display');
                 $('.dash-buttons').removeClass('hide-display');
@@ -1015,6 +1018,8 @@
             })
             .done(function (data) {
                 console.log('logging in');
+                console.log(data);
+                loggedInUser = data;
                 $('#sign-in-form').addClass('hide-display');
                 $('.dashboard').removeClass('hide-display');
                 $('#sign-in-form').addClass('hide-display');
@@ -1034,7 +1039,6 @@
     function logoutApp() {
         $('section').on('click', 'button.logout', function(e) {
             e.preventDefault();
-            e.stopPropagation();
 
             $.ajax({
                 url: '/logout',
