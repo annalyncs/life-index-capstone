@@ -196,6 +196,7 @@ app.post('/finances/new', jsonParser, (req, res) => {
 
     Finance
         .create({
+        username: req.body.username,
         date: req.body.date,
         category: req.body.category,
         cost: req.body.cost,
@@ -223,6 +224,7 @@ app.post('/health/new', jsonParser, (req, res) => {
 
     Health
         .create({
+        username: req.body.username,
         date: req.body.date,
         category: req.body.category,
         notes: req.body.notes
@@ -249,6 +251,7 @@ app.post('/fitness/new', jsonParser, (req, res) => {
 
     Fitness
         .create({
+        username: req.body.username,
         date: req.body.date,
         workout: req.body.workout,
         duration: req.body.duration,
@@ -276,6 +279,7 @@ app.post('/transport/new', jsonParser, (req, res) => {
 
     Transport
         .create({
+        username: req.body.username,
         date: req.body.date,
         type: req.body.type,
         miles: req.body.miles,

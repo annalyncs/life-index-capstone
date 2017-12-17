@@ -831,6 +831,7 @@
             let notesInput = $(this).parent().find('#finance-add-notes').val();
 
             let dataInput = {
+                'username': loggedInUser,
                 'date': dateInput,
                 'category': categoryInput,
                 'cost': costInput,
@@ -866,6 +867,7 @@
             let notesInput = $(this).parent().find('#health-add-notes').val();
 
             let dataInput = {
+                'username': loggedInUser,
                 'date': dateInput,
                 'category': categoryInput,
                 'notes': notesInput
@@ -900,6 +902,7 @@
             let notesInput = $(this).parent().find('#fitness-add-notes').val();
 
             let dataInput = {
+                'username': loggedInUser,
                 'date': dateInput,
                 'workout': workoutInput,
                 'duration': durationInput,
@@ -936,6 +939,7 @@
             let notesInput = $(this).parent().find('#transport-add-notes').val();
 
             let dataInput = {
+                'username': loggedInUser,
                 'date': dateInput,
                 'type': typeInput,
                 'miles': milesInput,
