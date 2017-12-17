@@ -85,6 +85,7 @@ router.post('/', (req, res) => {
     })
         .then(user => {
         return res.status(201).json(user.serialize());
+               console.log(res.json(req.body.username));
     })
         .catch(err => {
         res.status(500).json({message: 'Internal server error'})

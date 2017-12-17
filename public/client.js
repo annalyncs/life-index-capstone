@@ -990,6 +990,7 @@
             })
             .done(function (data) {
                 console.log('new user created');
+                loggedInUser = data.username;
                 $('#sign-up-form').addClass('hide-display');
                 $('.dashboard').removeClass('hide-display');
             })
