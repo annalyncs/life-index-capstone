@@ -93,7 +93,8 @@ router.post('/', (req, res) => {
 });
 
 
-const basicStrategy = new BasicStrategy(function(username, password, callback) {
+passport.use(new BasicStrategy(
+    function(username, password, callback) {
     let user;
     User
         .findOne({username: username})
@@ -112,11 +113,11 @@ const basicStrategy = new BasicStrategy(function(username, password, callback) {
         else {
             return callback(null, user)
         }
-    });
-});
+        });
+    }
+));
 
 
-passport.use(basicStrategy);
 
 passport.serializeUser(function(user, done) {
     done(null, user);
