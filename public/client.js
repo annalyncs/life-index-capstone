@@ -13,7 +13,7 @@
     function displayAllFinanceEntries(loggedInUser) {
         $.ajax({
             method: 'GET',
-            url: FINANCES_URL + "/" + loggedInUser
+            url: '/finances-by-user/' + loggedInUser
         })
             .done(function(data) {
                 let financeTableRows =
@@ -41,7 +41,7 @@
     function displayAllHealthEntries(loggedInUser) {
         $.ajax({
             method: 'GET',
-            url: HEALTH_URL + "/" + loggedInUser
+            url: '/health-by-user/' + loggedInUser
         })
             .done(function(data) {
             let healthTableRows =
@@ -68,7 +68,7 @@
     function displayAllFitnessEntries(loggedInUser) {
         $.ajax({
             method: 'GET',
-            url: FITNESS_URL + "/" + loggedInUser
+            url: '/fitness-by-user/' + loggedInUser
         })
             .done(function(data) {
             let fitnessTableRows =
@@ -96,7 +96,7 @@
     function displayAllTransportEntries(loggedInUser) {
         $.ajax({
             method: 'GET',
-            url: TRANSPORT_URL + "/" + loggedInUser
+            url: '/transport-by-user/' + loggedInUser
         })
             .done(function(data) {
             let transportTableRows =
@@ -297,7 +297,7 @@
 
         $.ajax({
             method: 'GET',
-            url: `${FINANCES_URL}/${idParameter}`
+            url: '/finances-by-id/' + idParameter
         })
             .done(function(data) {
             console.log(data);
@@ -327,7 +327,7 @@
 
         $.ajax({
             method: 'GET',
-            url: `${HEALTH_URL}/${idParameter}`
+            url: '/health-by-id/' + idParameter
         })
             .done(function(data) {
             let healthEntry =
@@ -354,7 +354,7 @@
 
         $.ajax({
             method: 'GET',
-            url: `${FITNESS_URL}/${idParameter}`
+            url: '/fitness-by-id/' + idParameter
         })
             .done(function(data) {
             let fitnessEntry =
@@ -383,7 +383,7 @@
 
         $.ajax({
             method: 'GET',
-            url: `${TRANSPORT_URL}/${idParameter}`
+            url: '/transport-by-id/' + idParameter
         })
             .done(function(data) {
             let transportEntry =
@@ -419,7 +419,7 @@
 
             $.ajax({
                 method: 'GET',
-                url: `${FINANCES_URL}/${idParameter}`
+                url: '/finances-by-id/' + idParameter
             })
                 .done(function(data) {
                     let financeUpdateForm =
@@ -505,7 +505,7 @@
 
             $.ajax({
                 method: 'GET',
-                url: `${HEALTH_URL}/${idParameter}`
+                url: '/health-by-id/' + idParameter
             })
                 .done(function(data) {
                 let healthUpdateForm =
@@ -582,7 +582,7 @@
 
             $.ajax({
                 method: 'GET',
-                url: `${FITNESS_URL}/${idParameter}`
+                url: '/fitness-by-id/' + idParameter
             })
                 .done(function(data) {
                 console.log(data);
@@ -666,7 +666,7 @@
 
             $.ajax({
                 method: 'GET',
-                url: `${TRANSPORT_URL}/${idParameter}`
+                url: '/transport-by-id/' + idParameter
             })
                 .done(function(data) {
                 let transportUpdateForm =
@@ -1011,14 +1011,6 @@
             let usernameInput = $(this).parent().find('#login-username').val();
             let passwordInput = $(this).parent().find('#login-password').val();
 
-            if (usernameInput === '') {
-                console.log('fail');
-            }
-
-            if (passwordInput === '') {
-                console.log('fail');
-            }
-
             let loginInput = {
                 'username': usernameInput,
                 'password': passwordInput
@@ -1053,7 +1045,6 @@
     function logoutApp() {
         $('section').on('click', 'button.logout', function(e) {
             e.preventDefault();
-            console.log('clicked');
 
             $.ajax({
                 url: '/logout',

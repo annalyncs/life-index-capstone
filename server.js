@@ -42,6 +42,10 @@ app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.get("/", (req, res) => {
     response.sendFile(__dirname + '/public/index.html')
 });
@@ -69,7 +73,7 @@ app.get('/logout', function (req, res){
 });
 
 // retrieve all documents from the database
-app.get('/finances/:user',
+app.get('/finances-by-user/:user',
         passport.authenticate('basic', { session: false }),
         function(req, res) {
     Finance
@@ -86,7 +90,7 @@ app.get('/finances/:user',
 });
 
 
-app.get('/health/:user',
+app.get('/health-by-user/:user',
         passport.authenticate('basic', { session: false }),
         function(req, res) {
     Health
@@ -102,7 +106,7 @@ app.get('/health/:user',
     });
 });
 
-app.get('/fitness/:user',
+app.get('/fitness-by-user/:user',
         passport.authenticate('basic', { session: false }),
         function(req, res) {
     Fitness
@@ -118,7 +122,7 @@ app.get('/fitness/:user',
     });
 });
 
-app.get('/transport/:user',
+app.get('/transport-by-user/:user',
         passport.authenticate('basic', { session: false }),
         function(req, res) {
     Transport
@@ -135,10 +139,13 @@ app.get('/transport/:user',
 });
 
 //retrieve data by id
-app.get('/finances/:id', (req, res) => {
+app.get('/finances-by-id/:id', (req, res) => {
+    console.log('id:', req.params.id);
     Finance
         .findById(req.params.id)
-        .then(finances => res.json(finances))
+        .then(finances => {
+        res.json(finances);
+    })
     .catch(err => {
         console.error(err);
         res.status(500).json({
@@ -147,7 +154,7 @@ app.get('/finances/:id', (req, res) => {
     });
 });
 
-app.get('/health/:id', (req,res) => {
+app.get('/health-by-id/:id', (req,res) => {
     Health
         .findById(req.params.id)
         .then(health => res.json(health))
@@ -159,7 +166,7 @@ app.get('/health/:id', (req,res) => {
     });
 });
 
-app.get('/fitness/:id', (req,res) => {
+app.get('/fitness-by-id/:id', (req,res) => {
     Fitness
         .findById(req.params.id)
         .then(fitness => res.json(fitness))
@@ -171,7 +178,7 @@ app.get('/fitness/:id', (req,res) => {
     });
 });
 
-app.get('/transport/:id', (req,res) => {
+app.get('/transport-by-id/:id', (req,res) => {
     Transport
         .findById(req.params.id)
         .then(transport => res.json(transport))
@@ -320,6 +327,7 @@ app.put('/finances/:id', jsonParser, (req,res) => {
 });
 
 app.put('/health/:id', jsonParser, (req,res) => {
+    console.log(req.body);
     const updated = {};
     const updateableFields = ['date', 'category', 'notes'];
     updateableFields.forEach(field => {
@@ -341,6 +349,7 @@ app.put('/health/:id', jsonParser, (req,res) => {
 });
 
 app.put('/fitness/:id', jsonParser, (req,res) => {
+    console.log(req.body);
     const updated = {};
     const updateableFields = ['date', 'workout', 'duration', 'notes'];
     updateableFields.forEach(field => {
@@ -348,7 +357,6 @@ app.put('/fitness/:id', jsonParser, (req,res) => {
             updated[field] = req.body[field];
         }
     });
-
     Fitness
         .findByIdAndUpdate(req.params.id, {
         $set: updated
@@ -362,6 +370,7 @@ app.put('/fitness/:id', jsonParser, (req,res) => {
 });
 
 app.put('/transport/:id', jsonParser, (req,res) => {
+    console.log(req.body);
     const updated = {};
     const updateableFields = ['date', 'type', 'miles', 'notes'];
     updateableFields.forEach(field => {

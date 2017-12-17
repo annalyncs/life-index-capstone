@@ -9,28 +9,6 @@ const router = express.Router();
 
 router.use(jsonParser);
 
-
-const strategy = new BasicStrategy(
-    (username, password, cb) => {
-        User
-            .findOne({username})
-            .exec()
-            .then(user => {
-            if (!user) {
-                return cb(null, false, {
-                    message: 'Incorrect username'
-                });
-            }
-            if (user.password !== password) {
-                return cb(null, false, 'Incorrect password');
-            }
-            return cb(null, user);
-        })
-            .catch(err => cb(err))
-    });
-
-passport.use(strategy);
-
 //create new user
 
 router.post('/', (req, res) => {
@@ -98,7 +76,6 @@ passport.use(new BasicStrategy(
     let user;
     User
         .findOne({username: username})
-        .exec()
         .then(_user => {
         user = _user;
         if (!user) {
@@ -118,20 +95,19 @@ passport.use(new BasicStrategy(
 ));
 
 
-
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
 
-passport.deserializeUser(function(user, done) {
-    done(null, user);
+passport.deserializeUser(function(userId, done) {
+    User.findById(userId, (err, user) => done(err, user));
 });
 
 router.use(passport.initialize());
 
 //login user
 
-router.post('/login', passport.authenticate('basic', {session: false}),(req, res) => {
+router.post('/login', passport.authenticate('basic', {session: true}),(req, res) => {
     res.json(req.body.username);
 });
 
