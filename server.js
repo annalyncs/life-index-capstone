@@ -63,7 +63,9 @@ app.use('/', usersRouter);
 
 
 app.get('/logout', function (req, res){
+    console.log('logging out');
     req.logout();
+    res.redirect('/');
 });
 
 // retrieve all documents from the database

@@ -1009,6 +1009,14 @@
             let usernameInput = $(this).parent().find('#login-username').val();
             let passwordInput = $(this).parent().find('#login-password').val();
 
+            if (usernameInput === '') {
+                console.log('fail');
+            }
+
+            if (passwordInput === '') {
+                console.log('fail');
+            }
+
             let loginInput = {
                 'username': usernameInput,
                 'password': passwordInput
@@ -1043,6 +1051,7 @@
     function logoutApp() {
         $('section').on('click', 'button.logout', function(e) {
             e.preventDefault();
+            console.log('clicked');
 
             $.ajax({
                 url: '/logout',
