@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
         return res.status(422).json({message: 'Missing field: username'});
     }
 
-    let {username, password, name} = req.body;
+    let {username, password} = req.body;
 
     if (typeof username !== 'string') {
         return res.status(422).json({message: 'Incorrect field type: username'});

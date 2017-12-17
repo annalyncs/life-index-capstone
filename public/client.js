@@ -998,6 +998,7 @@
                 console.log(jqXHR);
                 console.log(error);
                 console.log(errorThrown);
+                alert(jqXHR.responseJSON.message);
             });
         });
     }
