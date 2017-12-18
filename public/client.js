@@ -235,7 +235,7 @@
 
     function displayTransportByID() {
         $('#transport-table').on('click', '.view-icon', function () {
-            let idParameter = $('#transport-table').attr('id');
+            let idParameter = $(this).attr('id');
 
             $.ajax({
                     method: 'GET',
