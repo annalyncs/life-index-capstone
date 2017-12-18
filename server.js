@@ -32,7 +32,9 @@ const {
     Transport
 } = require('./models/Transport');
 
-const { router: usersRouter } = require('./users/router');
+const {
+    router: usersRouter
+} = require('./users/router');
 
 
 
@@ -66,7 +68,7 @@ app.use('/users/create', usersRouter);
 app.use('/', usersRouter);
 
 
-app.get('/logout', function (req, res){
+app.get('/logout', function (req, res) {
     console.log('logging out');
     req.logout();
     res.redirect('/');
@@ -74,69 +76,85 @@ app.get('/logout', function (req, res){
 
 // retrieve all documents from the database
 app.get('/finances-by-user/:user',
-        passport.authenticate('basic', { session: false }),
-        function(req, res) {
-    Finance
-        .find({username: req.params.user})
-        .then(finances => {
-            res.json(finances);
-        })
-        .catch(err => {
-            console.error(err);
-            res.status(500).json({
-                error: 'something went wrong'
+    passport.authenticate('basic', {
+        session: false
+    }),
+    function (req, res) {
+        Finance
+            .find({
+                username: req.params.user
+            })
+            .then(finances => {
+                res.json(finances);
+            })
+            .catch(err => {
+                console.error(err);
+                res.status(500).json({
+                    error: 'something went wrong'
+                });
             });
-        });
-});
+    });
 
 
 app.get('/health-by-user/:user',
-        passport.authenticate('basic', { session: false }),
-        function(req, res) {
-    Health
-        .find({username: req.params.user})
-        .then(health => {
-        res.json(health);
-    })
-        .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'something went wrong'
-        });
+    passport.authenticate('basic', {
+        session: false
+    }),
+    function (req, res) {
+        Health
+            .find({
+                username: req.params.user
+            })
+            .then(health => {
+                res.json(health);
+            })
+            .catch(err => {
+                console.error(err);
+                res.status(500).json({
+                    error: 'something went wrong'
+                });
+            });
     });
-});
 
 app.get('/fitness-by-user/:user',
-        passport.authenticate('basic', { session: false }),
-        function(req, res) {
-    Fitness
-        .find({username: req.params.user})
-        .then(fitness => {
-        res.json(fitness);
-    })
-        .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'something went wrong'
-        });
+    passport.authenticate('basic', {
+        session: false
+    }),
+    function (req, res) {
+        Fitness
+            .find({
+                username: req.params.user
+            })
+            .then(fitness => {
+                res.json(fitness);
+            })
+            .catch(err => {
+                console.error(err);
+                res.status(500).json({
+                    error: 'something went wrong'
+                });
+            });
     });
-});
 
 app.get('/transport-by-user/:user',
-        passport.authenticate('basic', { session: false }),
-        function(req, res) {
-    Transport
-        .find({username: req.params.user})
-        .then(transport => {
-        res.json(transport);
-    })
-        .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'something went wrong'
-        });
+    passport.authenticate('basic', {
+        session: false
+    }),
+    function (req, res) {
+        Transport
+            .find({
+                username: req.params.user
+            })
+            .then(transport => {
+                res.json(transport);
+            })
+            .catch(err => {
+                console.error(err);
+                res.status(500).json({
+                    error: 'something went wrong'
+                });
+            });
     });
-});
 
 //retrieve data by id
 app.get('/finances-by-id/:id', (req, res) => {
@@ -144,57 +162,57 @@ app.get('/finances-by-id/:id', (req, res) => {
     Finance
         .findById(req.params.id)
         .then(finances => {
-        res.json(finances);
-    })
-    .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'Something went wrong'
+            res.json(finances);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({
+                error: 'Something went wrong'
+            });
         });
-    });
 });
 
-app.get('/health-by-id/:id', (req,res) => {
+app.get('/health-by-id/:id', (req, res) => {
     Health
         .findById(req.params.id)
         .then(health => res.json(health))
         .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'Something went wrong'
+            console.error(err);
+            res.status(500).json({
+                error: 'Something went wrong'
+            });
         });
-    });
 });
 
-app.get('/fitness-by-id/:id', (req,res) => {
+app.get('/fitness-by-id/:id', (req, res) => {
     Fitness
         .findById(req.params.id)
         .then(fitness => res.json(fitness))
         .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'Something went wrong'
+            console.error(err);
+            res.status(500).json({
+                error: 'Something went wrong'
+            });
         });
-    });
 });
 
-app.get('/transport-by-id/:id', (req,res) => {
+app.get('/transport-by-id/:id', (req, res) => {
     Transport
         .findById(req.params.id)
         .then(transport => res.json(transport))
         .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'Something went wrong'
+            console.error(err);
+            res.status(500).json({
+                error: 'Something went wrong'
+            });
         });
-    });
 });
 
 //Post a new entry
 
 app.post('/finances/new', jsonParser, (req, res) => {
     const requiredFields = ['date', 'category'];
-    for (let i=0; i < requiredFields.length; i++) {
+    for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
             const message = `Missing \`${field}\` in request body`;
@@ -205,12 +223,12 @@ app.post('/finances/new', jsonParser, (req, res) => {
 
     Finance
         .create({
-        username: req.body.username,
-        date: req.body.date,
-        category: req.body.category,
-        cost: req.body.cost,
-        notes: req.body.notes
-    })
+            username: req.body.username,
+            date: req.body.date,
+            category: req.body.category,
+            cost: req.body.cost,
+            notes: req.body.notes
+        })
         .then(finances => res.status(201).json(finances))
         .catch(err => {
             console.error(err);
@@ -222,7 +240,7 @@ app.post('/finances/new', jsonParser, (req, res) => {
 
 app.post('/health/new', jsonParser, (req, res) => {
     const requiredFields = ['date', 'category'];
-    for (let i=0; i < requiredFields.length; i++) {
+    for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
             const message = `Missing \`${field}\` in request body`;
@@ -233,23 +251,23 @@ app.post('/health/new', jsonParser, (req, res) => {
 
     Health
         .create({
-        username: req.body.username,
-        date: req.body.date,
-        category: req.body.category,
-        notes: req.body.notes
-    })
+            username: req.body.username,
+            date: req.body.date,
+            category: req.body.category,
+            notes: req.body.notes
+        })
         .then(health => res.status(201).json(health))
         .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'Something went wrong'
+            console.error(err);
+            res.status(500).json({
+                error: 'Something went wrong'
+            });
         });
-    });
 });
 
 app.post('/fitness/new', jsonParser, (req, res) => {
     const requiredFields = ['date', 'workout'];
-    for (let i=0; i < requiredFields.length; i++) {
+    for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
             const message = `Missing \`${field}\` in request body`;
@@ -260,24 +278,24 @@ app.post('/fitness/new', jsonParser, (req, res) => {
 
     Fitness
         .create({
-        username: req.body.username,
-        date: req.body.date,
-        workout: req.body.workout,
-        duration: req.body.duration,
-        notes: req.body.notes
-    })
+            username: req.body.username,
+            date: req.body.date,
+            workout: req.body.workout,
+            duration: req.body.duration,
+            notes: req.body.notes
+        })
         .then(health => res.status(201).json(health))
         .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'Something went wrong'
+            console.error(err);
+            res.status(500).json({
+                error: 'Something went wrong'
+            });
         });
-    });
 });
 
 app.post('/transport/new', jsonParser, (req, res) => {
     const requiredFields = ['date', 'type'];
-    for (let i=0; i < requiredFields.length; i++) {
+    for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
         if (!(field in req.body)) {
             const message = `Missing \`${field}\` in request body`;
@@ -288,24 +306,24 @@ app.post('/transport/new', jsonParser, (req, res) => {
 
     Transport
         .create({
-        username: req.body.username,
-        date: req.body.date,
-        type: req.body.type,
-        miles: req.body.miles,
-        notes: req.body.notes
-    })
+            username: req.body.username,
+            date: req.body.date,
+            type: req.body.type,
+            miles: req.body.miles,
+            notes: req.body.notes
+        })
         .then(health => res.status(201).json(health))
         .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'Something went wrong'
+            console.error(err);
+            res.status(500).json({
+                error: 'Something went wrong'
+            });
         });
-    });
 });
 
 //update entry data
 
-app.put('/finances/:id', jsonParser, (req,res) => {
+app.put('/finances-update/:id', jsonParser, (req, res) => {
     const updated = {};
     const updateableFields = ['date', 'category', 'cost', 'notes'];
     updateableFields.forEach(field => {
@@ -326,7 +344,7 @@ app.put('/finances/:id', jsonParser, (req,res) => {
         }));
 });
 
-app.put('/health/:id', jsonParser, (req,res) => {
+app.put('/health-update/:id', jsonParser, (req, res) => {
     console.log(req.body);
     const updated = {};
     const updateableFields = ['date', 'category', 'notes'];
@@ -338,17 +356,17 @@ app.put('/health/:id', jsonParser, (req,res) => {
 
     Health
         .findByIdAndUpdate(req.params.id, {
-        $set: updated
-    }, {
-        new: true
-    })
+            $set: updated
+        }, {
+            new: true
+        })
         .then(updatedHealth => res.status(204).end())
         .catch(err => res.status(500).json({
-        message: 'Something went wrong'
-    }));
+            message: 'Something went wrong'
+        }));
 });
 
-app.put('/fitness/:id', jsonParser, (req,res) => {
+app.put('/fitness-update/:id', jsonParser, (req, res) => {
     console.log(req.body);
     const updated = {};
     const updateableFields = ['date', 'workout', 'duration', 'notes'];
@@ -359,17 +377,17 @@ app.put('/fitness/:id', jsonParser, (req,res) => {
     });
     Fitness
         .findByIdAndUpdate(req.params.id, {
-        $set: updated
-    }, {
-        new: true
-    })
+            $set: updated
+        }, {
+            new: true
+        })
         .then(updatedFitness => res.status(204).end())
         .catch(err => res.status(500).json({
-        message: 'Something went wrong'
-    }));
+            message: 'Something went wrong'
+        }));
 });
 
-app.put('/transport/:id', jsonParser, (req,res) => {
+app.put('/transport-update/:id', jsonParser, (req, res) => {
     console.log(req.body);
     const updated = {};
     const updateableFields = ['date', 'type', 'miles', 'notes'];
@@ -381,80 +399,80 @@ app.put('/transport/:id', jsonParser, (req,res) => {
 
     Transport
         .findByIdAndUpdate(req.params.id, {
-        $set: updated
-    }, {
-        new: true
-    })
+            $set: updated
+        }, {
+            new: true
+        })
         .then(updatedTransport => res.status(204).end())
         .catch(err => res.status(500).json({
-        message: 'Something went wrong'
-    }));
+            message: 'Something went wrong'
+        }));
 });
 
 //delete an entry
 
-app.delete('/finances/:id', (req,res) => {
+app.delete('/finances/:id', (req, res) => {
     Finance
         .findByIdAndRemove(req.params.id)
-        .then(() =>{
+        .then(() => {
             res.status(204).json({
                 message: 'success'
             });
-    })
+        })
         .catch(err => {
             console.error(err);
             res.status(500).json({
                 error: 'Something went wrong'
             });
-    });
+        });
 })
 
-app.delete('/health/:id', (req,res) => {
+app.delete('/health/:id', (req, res) => {
     Health
         .findByIdAndRemove(req.params.id)
-        .then(() =>{
-        res.status(204).json({
-            message: 'success'
-        });
-    })
+        .then(() => {
+            res.status(204).json({
+                message: 'success'
+            });
+        })
         .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'Something went wrong'
+            console.error(err);
+            res.status(500).json({
+                error: 'Something went wrong'
+            });
         });
-    });
 })
 
-app.delete('/fitness/:id', (req,res) => {
+app.delete('/fitness/:id', (req, res) => {
     Fitness
         .findByIdAndRemove(req.params.id)
-        .then(() =>{
-        res.status(204).json({
-            message: 'success'
-        });
-    })
+        .then(() => {
+            res.status(204).json({
+                message: 'success'
+            });
+        })
         .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'Something went wrong'
+            console.error(err);
+            res.status(500).json({
+                error: 'Something went wrong'
+            });
         });
-    });
 })
 
-app.delete('/transport/:id', (req,res) => {
+app.delete('/transport/:id', (req, res) => {
     Transport
         .findByIdAndRemove(req.params.id)
-        .then(() =>{
-        res.status(204).json({
-            message: 'success'
-        });
-    })
+        .then(() => {
+            res.status(204).json({
+                message: 'success'
+            });
+        })
         .catch(err => {
-        console.error(err);
-        res.status(500).json({
-            error: 'Something went wrong'
+            console.error(err);
+            res.status(500).json({
+                error: 'Something went wrong'
+            });
         });
-    });
 })
 
 app.use('*', function (req, res) {
@@ -474,13 +492,13 @@ function runServer(databaseUrl = DATABASE_URL, port = PORT) {
                 return reject(err);
             }
             server = app.listen(port, () => {
-                console.log(`Your app is listening on port ${port}`);
-                resolve();
-            })
+                    console.log(`Your app is listening on port ${port}`);
+                    resolve();
+                })
                 .on('error', err => {
-                mongoose.disconnect();
-                reject(err);
-            });
+                    mongoose.disconnect();
+                    reject(err);
+                });
         });
     });
 }
@@ -508,4 +526,3 @@ module.exports = {
     app,
     closeServer
 };
-

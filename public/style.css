@@ -11,7 +11,7 @@ body {
 
 /*****MISC****/
 
-header.header-logo{
+header.header-logo {
     text-transform: uppercase;
     margin: 10px;
     padding: 10px;
@@ -22,10 +22,11 @@ header.header-logo{
     font-weight: 700;
     font-size: 20px;
     color: white;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
 }
 
-div, section {
+div,
+section {
     margin-top: 80px;
     margin-bottom: 40px;
 }
@@ -50,6 +51,7 @@ ul {
 
 
 /*****NAVIGATION****/
+
 nav {
     position: fixed;
     top: 0;
@@ -57,14 +59,14 @@ nav {
     right: 0;
     z-index: 10;
     margin: 0;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 nav ul {
     overflow: hidden;
     text-align: center;
     margin: 0;
-    padding:0;
+    padding: 0;
     list-style: none;
     text-align: right;
 }
@@ -84,7 +86,7 @@ li.nav-left {
 /*****LANDING PAGE*****/
 
 div.start-page header {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     height: 100%;
 }
 
@@ -120,6 +122,7 @@ p.main-tagline {
 }
 
 /*****ABOUT PAGE****/
+
 .about-page {
     height: 100vh;
     margin-top: 50px;
@@ -155,7 +158,7 @@ section.about-page {
     height: 400px;
     margin: 10px;
     background-color: lightsteelblue;
-    box-shadow: 0 3px 5px rgba(0,0,0,.2);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
 }
 
 /*****DASHBOARD*****/
@@ -172,12 +175,12 @@ div.dashboard-option {
     margin: 30px;
 }
 
-.dashboard-tagline{
+.dashboard-tagline {
     font-size: 30px;
     font-weight: 700;
 }
 
-.dashboard-text{
+.dashboard-text {
     color: steelblue;
     font-weight: 300;
     font-size: 20px;
@@ -212,7 +215,8 @@ button#logout {
     border: 0px;
 }
 
-button#dash-logout, button#dash-back {
+button#dash-logout,
+button#dash-back {
     display: inline-block;
     margin: 0 auto;
     padding: 10px;
@@ -226,6 +230,7 @@ button#dash-logout, button#dash-back {
 }
 
 /*****LIFESTYLE DATA*****/
+
 .icon-header {
     display: inline-block;
     float: left;
@@ -240,7 +245,8 @@ button#dash-logout, button#dash-back {
     padding: 5px;
 }
 
-.lifestyle-data h1, h2 {
+.lifestyle-data h1,
+h2 {
     padding: 0;
     margin: 0;
     font-size: 40px;
@@ -258,7 +264,8 @@ div.data-controls {
     text-align: center;
 }
 
-div.data-controls span, form {
+div.data-controls span,
+form {
     display: inline-block;
     text-align: center;
     margin-left: 25px;
@@ -318,6 +325,7 @@ img.icon {
 }
 
 /*****FORMS*****/
+
 #sign-in-form,
 #sign-up-form,
 .add-entry,
@@ -328,7 +336,7 @@ img.icon {
 #add-entry-finance,
 #add-entry-health,
 #add-entry-fitness,
-#add-entry-transport{
+#add-entry-transport {
     text-align: center;
 }
 
@@ -338,7 +346,7 @@ form h2 {
 }
 
 form h1 {
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
 h2.add-entry-new {
@@ -362,7 +370,7 @@ label {
 .sign-in-submit,
 .sign-up-submit,
 .add-submit,
-.back-button{
+.back-button {
     margin-bottom: 10px;
     margin-top: 20px;
     border: 0px;
@@ -378,7 +386,16 @@ select {
     width: 200px;
 }
 
+input#finance-notes,
+input#health-notes,
+input#fitness-notes,
+input#transport-notes {
+    width: 300px;
+    height: 100px;
+}
+
 /*****VIEW ENTRY FORM*****/
+
 #finance-entry h3,
 #finance-entry p,
 #health-entry h3,
@@ -386,7 +403,7 @@ select {
 #fitness-entry h3,
 #fitness-entry p,
 #transport-entry h3,
-#transport-entry p{
+#transport-entry p {
     display: inline-block;
     margin-bottom: 5px;
     margin-top: 5px;
@@ -408,6 +425,7 @@ select {
 }
 
 /*****FOOTER*****/
+
 footer {
     background: #ccc;
     height: 7vh;

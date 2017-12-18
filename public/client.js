@@ -338,16 +338,16 @@
 
             $.ajax({
                     method: 'PUT',
-                    url: `${FINANCES_URL}/${idParameter}`,
+                    url: '/finances-update/' + idParameter,
                     contentType: 'application/json',
                     data: JSON.stringify(newDataInput)
                 })
                 .done(function (data) {
                     $('.data-rows').html('');
-                    displayAllFinanceEntries(loggedInUser);
                     $('#update-entry-finance').addClass('hide-display');
                     $('#finance-table').removeClass('hide-display');
                     $('.data-controls').removeClass('hide-display');
+                    displayAllFinanceEntries(loggedInUser);
                 })
                 .fail(function (jqXHR, error, errorThrown) {
                     console.log(jqXHR);
@@ -414,16 +414,16 @@
 
             $.ajax({
                     method: 'PUT',
-                    url: `${HEALTH_URL}/${idParameter}`,
+                    url: '/health-update/' + idParameter,
                     contentType: 'application/json',
                     data: JSON.stringify(newDataInput)
                 })
                 .done(function (data) {
                     $('.data-rows').html('');
-                    displayAllHealthEntries(loggedInUser);
                     $('#update-entry-health').addClass('hide-display');
                     $('#health-table').removeClass('hide-display');
                     $('.data-controls').removeClass('hide-display');
+                    displayAllHealthEntries(loggedInUser);
                 })
                 .fail(function (jqXHR, error, errorThrown) {
                     console.log(jqXHR);
@@ -498,16 +498,16 @@
 
             $.ajax({
                     method: 'PUT',
-                    url: `${FITNESS_URL}/${idParameter}`,
+                    url: '/fitness-update/' + idParameter,
                     contentType: 'application/json',
                     data: JSON.stringify(newDataInput)
                 })
                 .done(function (data) {
                     $('.data-rows').html('');
-                    displayAllFitnessEntries(loggedInUser);
                     $('#update-entry-fitness').addClass('hide-display');
                     $('#fitness-table').removeClass('hide-display');
                     $('.data-controls').removeClass('hide-display');
+                    displayAllFitnessEntries(loggedInUser);
                 })
                 .fail(function (jqXHR, error, errorThrown) {
                     console.log(jqXHR);
@@ -581,16 +581,16 @@
 
             $.ajax({
                     method: 'PUT',
-                    url: `${TRANSPORT_URL}/${idParameter}`,
+                    url: '/transport-update/' + idParameter,
                     contentType: 'application/json',
                     data: JSON.stringify(newDataInput)
                 })
                 .done(function (data) {
                     $('.data-rows').html('');
-                    displayAllTransportEntries(loggedInUser);
                     $('#update-entry-transport').addClass('hide-display');
                     $('#transport-table').removeClass('hide-display');
                     $('.data-controls').removeClass('hide-display');
+                    displayAllTransportEntries(loggedInUser);
                 })
                 .fail(function (jqXHR, error, errorThrown) {
                     console.log(jqXHR);
