@@ -244,17 +244,17 @@
                 .done(function (data) {
                     let transportEntry =
                         `<div id="transport-entry">
-                    <h1>Transport</h1>
-                    <h2>View Entry</h2>
-                    <h3>Date:</h3>
-                    <p>${data.date}</p><br>
-                    <h3>Type:</h3>
-                    <p>${data.type}</p><br>
-                    <h3>Miles:</h3>
-                    <p>${data.miles}</p><br>
-                    <h3>Notes:</h3>
-                    <p>${data.notes}</p>
-                </div>`;
+                        <h1>Transport</h1>
+                        <h2>View Entry</h2>
+                        <h3>Date:</h3>
+                        <p>${data.date}</p><br>
+                        <h3>Type:</h3>
+                        <p>${data.type}</p><br>
+                        <h3>Miles:</h3>
+                        <p>${data.miles}</p><br>
+                        <h3>Notes:</h3>
+                        <p>${data.notes}</p>
+                    </div>`;
 
                     $('#transport-entry').removeClass('hide-display');
                     $('#transport-table').addClass('hide-display');
