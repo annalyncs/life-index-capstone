@@ -126,16 +126,17 @@
     //GET individual entries by id
 
     function displayFinanceByID() {
-        let idParameter = $(this).attr('id');
+        $('#finance-table').on('click', '.view-icon', function () {
+            let idParameter = $(this).attr('id');
 
-        $.ajax({
-                method: 'GET',
-                url: '/finances-by-id/' + idParameter
-            })
-            .done(function (data) {
-                console.log(data);
-                let financeEntry =
-                    `<div id="finance-entry">
+            $.ajax({
+                    method: 'GET',
+                    url: '/finances-by-id/' + idParameter
+                })
+                .done(function (data) {
+                    console.log(data);
+                    let financeEntry =
+                        `<div id="finance-entry">
                 <h1>Finance</h1>
                 <h2>View Entry</h2>
                 <h3>Date:</h3>
@@ -148,28 +149,30 @@
                 <p>${data.notes}</p>
             </div>`;
 
-                $('#finance-entry').removeClass('hide-display');
-                $('#finance-table').addClass('hide-display');
-                $('#finance-main').html(financeEntry);
-                $('#finance-main').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+                    $('#finance-entry').removeClass('hide-display');
+                    $('#finance-table').addClass('hide-display');
+                    $('#finance-main').html(financeEntry);
+                    $('#finance-main').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        })
     }
 
     function displayHealthByID() {
-        let idParameter = $(this).attr('id');
+        $('#health-table').on('click', '.view-icon', function () {
+            let idParameter = $('#health-table').attr('id');
 
-        $.ajax({
-                method: 'GET',
-                url: '/health-by-id/' + idParameter
-            })
-            .done(function (data) {
-                let healthEntry =
-                    `<div id="health-entry">
+            $.ajax({
+                    method: 'GET',
+                    url: '/health-by-id/' + idParameter
+                })
+                .done(function (data) {
+                    let healthEntry =
+                        `<div id="health-entry">
                         <h1>Health</h1>
                         <h2>View Entry</h2>
                         <h3>Date:</h3>
@@ -180,29 +183,31 @@
                         <p>${data.notes}</p>
                     </div>`;
 
-                $('#health-entry').removeClass('hide-display');
-                $('#health-table').addClass('hide-display');
-                $('#health-main').html(healthEntry);
-                $('#health-main').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+                    $('#health-entry').removeClass('hide-display');
+                    $('#health-table').addClass('hide-display');
+                    $('#health-main').html(healthEntry);
+                    $('#health-main').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        })
     }
 
 
-    function displayHealthByID() {
-        let idParameter = $(this).attr('id');
+    function displayFitnessByID() {
+        $('#fitness-table').on('click', '.view-icon', function () {
+            let idParameter = $(this).attr('id');
 
-        $.ajax({
-                method: 'GET',
-                url: '/fitness-by-id/' + idParameter
-            })
-            .done(function (data) {
-                let fitnessEntry =
-                    `<div id="fitness-entry">
+            $.ajax({
+                    method: 'GET',
+                    url: '/fitness-by-id/' + idParameter
+                })
+                .done(function (data) {
+                    let fitnessEntry =
+                        `<div id="fitness-entry">
                     <h1>Fitness</h1>
                     <h2>View Entry</h2>
                     <h3>Date:</h3>
@@ -215,28 +220,30 @@
                     <p>${data.notes}</p>
                 </div>`;
 
-                $('#fitness-entry').removeClass('hide-display');
-                $('#fitness-table').addClass('hide-display');
-                $('#fitness-main').html(fitnessEntry);
-                $('#fitness-main').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            })
+                    $('#fitness-entry').removeClass('hide-display');
+                    $('#fitness-table').addClass('hide-display');
+                    $('#fitness-main').html(fitnessEntry);
+                    $('#fitness-main').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                })
+        })
     }
 
     function displayTransportByID() {
-        let idParameter = $(this).attr('id');
+        $('#transport-table').on('click', '.view-icon', function () {
+            let idParameter = $('#transport-table').attr('id');
 
-        $.ajax({
-                method: 'GET',
-                url: '/transport-by-id/' + idParameter
-            })
-            .done(function (data) {
-                let transportEntry =
-                    `<div id="transport-entry">
+            $.ajax({
+                    method: 'GET',
+                    url: '/transport-by-id/' + idParameter
+                })
+                .done(function (data) {
+                    let transportEntry =
+                        `<div id="transport-entry">
                     <h1>Transport</h1>
                     <h2>View Entry</h2>
                     <h3>Date:</h3>
@@ -249,536 +256,585 @@
                     <p>${data.notes}</p>
                 </div>`;
 
-                $('#transport-entry').removeClass('hide-display');
-                $('#transport-table').addClass('hide-display');
-                $('#transport-main').html(transportEntry);
-                $('#transport-main').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            })
+                    $('#transport-entry').removeClass('hide-display');
+                    $('#transport-table').addClass('hide-display');
+                    $('#transport-main').html(transportEntry);
+                    $('#transport-main').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                })
+        })
     }
 
     //first GET entry by ID
     //then, PUT endpoint to update entry
     //UPDATE FINANCE DATA
     function retrieveFinanceData() {
-        let idParameter = $(this).attr('id');
+        $('#finance-table').on('click', '.edit-icon', function () {
+            let idParameter = $(this).attr('id');
+            $('#finance-table').addClass('hide-display');
+            $('.data-controls').addClass('hide-display');
 
-        $.ajax({
-                method: 'GET',
-                url: '/finances-by-id/' + idParameter
-            })
-            .done(function (data) {
-                let financeUpdateForm =
-                    `<div id="update-entry-finance" class="add-entry">
+            $.ajax({
+                    method: 'GET',
+                    url: '/finances-by-id/' + idParameter
+                })
+                .done(function (data) {
+                    let financeUpdateForm =
+                        `<div id="update-entry-finance" class="add-entry">
                         <form class="add-entry" id=${idParameter}>
-                            <h1 class="add-entry-data">Finance</h1>
-                            <h2 class="add-entry-new">Update Entry</h2>
-                            <label for="date">Date</label><br>
-                            <input type="text" name="date" value="${data.date}" id="finance-date"><br>
-                            <label for="category">Category</label><br>
-                            <select name="category" value="${data.category}" id="finance-category">
-                                <option value="Apparel, Shoes & Accessories">Apparel, Shoes & Accessories</option>
-                                <option value="Dining & Drinking">Dining & Drinking</option>
-                                <option value="Entertainment">Entertainment</option>
-                                <option value="Groceries">Groceries</option>
-                                <option value="Household Products">Household Products</option>
-                                <option value="Medical & Health">Medical & Health</option>
-                                <option value="Transportation">Transportation</option>
-                                <option value="Personal Care">Personal Care</option>
-                                <option value="Professional Services">Professional Services</option>
-                                <option value="Other">Other</option>
-                            </select><br>
-                            <label for="cost">Cost</label><br>
-                            <input type="text" name="cost" value="${data.cost}" id="finance-cost"><br>
-                            <label for="notes">Notes</label><br>
-                            <input type="text" name="notes" value="${data.notes}" id="finance-notes"><br>
-                            <input type="submit" value="Update" class="add-submit finance-update">
+                        <h1 class="add-entry-data">Finance</h1>
+                        <h2 class="add-entry-new">Update Entry</h2>
+                        <label for="date">Date</label><br>
+                        <input type="text" name="date" value="${data.date}" id="finance-date"><br>
+                        <label for="category">Category</label><br>
+                        <select name="category" value="${data.category}" id="finance-category">
+                        <option value="Apparel, Shoes & Accessories">Apparel, Shoes & Accessories</option>
+                        <option value="Dining & Drinking">Dining & Drinking</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Household Products">Household Products</option>
+                        <option value="Medical & Health">Medical & Health</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Personal Care">Personal Care</option>
+                        <option value="Professional Services">Professional Services</option>
+                        <option value="Other">Other</option>
+                        </select><br>
+                        <label for="cost">Cost</label><br>
+                        <input type="text" name="cost" value="${data.cost}" id="finance-cost"><br>
+                        <label for="notes">Notes</label><br>
+                        <input type="text" name="notes" value="${data.notes}" id="finance-notes"><br>
+                        <input type="submit" value="Update" class="add-submit finance-update">
                         </form>
-                    </div>`;
-                $('#finance-main').html(financeUpdateForm);
-                $('#update-entry-finance').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+                        </div>`;
+                    $('#finance-main').html(financeUpdateForm);
+                    $('#update-entry-finance').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
     }
 
     function updateFinanceData() {
-        let idParameter = $('form.add-entry').attr('id');
-        let dateInput = $('form.add-entry').find('#finance-date').val();
-        let categoryInput = $('form.add-entry').find('select#finance-category').val();
-        let costInput = $('form.add-entry').find('#finance-cost').val();
-        let notesInput = $('form.add-entry').find('#finance-notes').val();
-        let newDataInput = {
-            'date': dateInput,
-            'category': categoryInput,
-            'cost': costInput,
-            'notes': notesInput
-        }
+        $('#finance-data').on('click', '.finance-update', function (e) {
+            e.preventDefault();
+            let idParameter = $('form.add-entry').attr('id');
+            let dateInput = $('form.add-entry').find('#finance-date').val();
+            let categoryInput = $('form.add-entry').find('select#finance-category').val();
+            let costInput = $('form.add-entry').find('#finance-cost').val();
+            let notesInput = $('form.add-entry').find('#finance-notes').val();
+            let newDataInput = {
+                'date': dateInput,
+                'category': categoryInput,
+                'cost': costInput,
+                'notes': notesInput
+            }
 
-        $.ajax({
-                method: 'PUT',
-                url: `${FINANCES_URL}/${idParameter}`,
-                contentType: 'application/json',
-                data: JSON.stringify(newDataInput)
-            })
-            .done(function (data) {
-                $('.data-rows').html('');
-                displayAllFinanceEntries(loggedInUser);
-                $('#update-entry-finance').addClass('hide-display');
-                $('#finance-table').removeClass('hide-display');
-                $('.data-controls').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+            $.ajax({
+                    method: 'PUT',
+                    url: `${FINANCES_URL}/${idParameter}`,
+                    contentType: 'application/json',
+                    data: JSON.stringify(newDataInput)
+                })
+                .done(function (data) {
+                    $('.data-rows').html('');
+                    displayAllFinanceEntries(loggedInUser);
+                    $('#update-entry-finance').addClass('hide-display');
+                    $('#finance-table').removeClass('hide-display');
+                    $('.data-controls').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
     }
 
     //UPDATE HEALTH DATA
     function retrieveHealthData() {
-        let idParameter = $(this).attr('id');
+        $('#health-table').on('click', '.edit-icon', function () {
+            let idParameter = $(this).attr('id');
+            $('#health-table').addClass('hide-display');
+            $('.data-controls').addClass('hide-display');
 
-        $.ajax({
-                method: 'GET',
-                url: '/health-by-id/' + idParameter
-            })
-            .done(function (data) {
-                let healthUpdateForm =
-                    `<div id="update-entry-health" class="add-entry">
-                    <form class="add-entry" id=${idParameter}>
-                    <h1 class="add-entry-data">Health</h1>
-                    <h2 class="add-entry-new">Update Entry</h2>
-                    <label for="date">Date</label><br>
+            $.ajax({
+                    method: 'GET',
+                    url: '/health-by-id/' + idParameter
+                })
+                .done(function (data) {
+                    let healthUpdateForm =
+                        `<div id="update-entry-health" class="add-entry">
+                        <form class="add-entry" id=${idParameter}>
+                        <h1 class="add-entry-data">Health</h1>
+                        <h2 class="add-entry-new">Update Entry</h2>
+                        <label for="date">Date</label><br>
                         <input type="text" name="date" value="${data.date}" id="health-date"><br>
-                    <label for="category">Category</label><br>
-                    <select name="category" value="${data.category}" id="health-category">
+                        <label for="category">Category</label><br>
+                        <select name="category" value="${data.category}" id="health-category">
                         <option>Appointment</option>
                         <option>Mood</option>
                         <option>Diet</option>
                         <option>Other</option>
-                    </select><br>
-                    <label for="notes">Notes</label><br>
+                        </select><br>
+                        <label for="notes">Notes</label><br>
                         <input type="text" name="notes" value="${data.notes}" id="health-notes"><br>
-                    <input type="submit" value="Update" class="add-submit health-update">
-                    </form>
-                </div>`;
-                $('#health-main').html(healthUpdateForm);
-                $('#update-entry-health').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+                        <input type="submit" value="Update" class="add-submit health-update">
+                        </form>
+                        </div>`;
+                    $('#health-main').html(healthUpdateForm);
+                    $('#update-entry-health').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
     }
 
     function updateHealthData() {
-        let idParameter = $('form.add-entry').attr('id');
-        let dateInput = $('form.add-entry').find('#health-date').val();
-        let categoryInput = $('form.add-entry').find('select#health-category').val();
-        let notesInput = $('form.add-entry').find('#health-notes').val();
-        let newDataInput = {
-            'date': dateInput,
-            'category': categoryInput,
-            'notes': notesInput
-        }
+        $('#health-data').on('click', '.health-update', function (e) {
+            e.preventDefault();
+            let idParameter = $('form.add-entry').attr('id');
+            let dateInput = $('form.add-entry').find('#health-date').val();
+            let categoryInput = $('form.add-entry').find('select#health-category').val();
+            let notesInput = $('form.add-entry').find('#health-notes').val();
+            let newDataInput = {
+                'date': dateInput,
+                'category': categoryInput,
+                'notes': notesInput
+            }
 
-        $.ajax({
-                method: 'PUT',
-                url: `${HEALTH_URL}/${idParameter}`,
-                contentType: 'application/json',
-                data: JSON.stringify(newDataInput)
-            })
-            .done(function (data) {
-                $('.data-rows').html('');
-                displayAllHealthEntries(loggedInUser);
-                $('#update-entry-health').addClass('hide-display');
-                $('#health-table').removeClass('hide-display');
-                $('.data-controls').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+            $.ajax({
+                    method: 'PUT',
+                    url: `${HEALTH_URL}/${idParameter}`,
+                    contentType: 'application/json',
+                    data: JSON.stringify(newDataInput)
+                })
+                .done(function (data) {
+                    $('.data-rows').html('');
+                    displayAllHealthEntries(loggedInUser);
+                    $('#update-entry-health').addClass('hide-display');
+                    $('#health-table').removeClass('hide-display');
+                    $('.data-controls').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        })
     }
 
     // UPDATE FITNESS DATA
 
     function retrieveFitnessData() {
-        let idParameter = $(this).attr('id');
+        $('#fitness-table').on('click', '.edit-icon', function () {
+            let idParameter = $(this).attr('id');
+            $('#fitness-table').addClass('hide-display');
+            $('.data-controls').addClass('hide-display');
 
-        $.ajax({
-                method: 'GET',
-                url: '/fitness-by-id/' + idParameter
-            })
-            .done(function (data) {
-                console.log(data);
-                let fitnessUpdateForm =
-                    `<div id="update-entry-fitness" class="add-entry">
-                <form class="add-entry" id=${idParameter}>
-                    <h1 class="add-entry-data">Fitness</h1>
-                    <h2 class="add-entry-new">Update Entry</h2>
-                    <label for="date">Date</label><br>
+            $.ajax({
+                    method: 'GET',
+                    url: '/fitness-by-id/' + idParameter
+                })
+                .done(function (data) {
+                    console.log(data);
+                    let fitnessUpdateForm =
+                        `<div id="update-entry-fitness" class="add-entry">
+                        <form class="add-entry" id=${idParameter}>
+                        <h1 class="add-entry-data">Fitness</h1>
+                        <h2 class="add-entry-new">Update Entry</h2>
+                        <label for="date">Date</label><br>
                         <input type="text" name="date" value="${data.date}" id="fitness-date"><br>
-                    <label for="workout">Workout</label><br>
-                    <select name="workout" value="${data.workout}" id="fitness-workout">
+                        <label for="workout">Workout</label><br>
+                        <select name="workout" value="${data.workout}" id="fitness-workout">
                         <option>Aerobic</option>
                         <option>Strength</option>
                         <option>Balance</option>
                         <option>Flexibility</option>
                         <option>Other</option>
-                    </select><br>
-                    <label for="duration">Duration</label><br>
+                        </select><br>
+                        <label for="duration">Duration</label><br>
                         <input type="text" name="duration" value="${data.duration}" id="fitness-duration"><br>
-                    <label for="notes">Notes</label><br>
+                        <label for="notes">Notes</label><br>
                         <input type="text" name="notes" value="${data.notes}" id="fitness-notes"><br>
-                    <input type="submit" value="Update" class="add-submit fitness-update">
-                </form>
-                </div>`;
-                $('#fitness-main').html(fitnessUpdateForm);
-                $('#update-entry-fitness').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+                        <input type="submit" value="Update" class="add-submit fitness-update">
+                        </form>
+                        </div>`;
+                    $('#fitness-main').html(fitnessUpdateForm);
+                    $('#update-entry-fitness').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
     }
 
     function updateFitnessData() {
-        let idParameter = $('form.add-entry').attr('id');
-        let dateInput = $('form.add-entry').find('#fitness-date').val();
-        let workoutInput = $('form.add-entry').find('select#fitness-workout').val();
-        let durationInput = $('form.add-entry').find('#fitness-duration').val();
-        let notesInput = $('form.add-entry').find('#fitness-notes').val();
+        $('#fitness-data').on('click', '.fitness-update', function (e) {
+            e.preventDefault();
+            let idParameter = $('form.add-entry').attr('id');
+            let dateInput = $('form.add-entry').find('#fitness-date').val();
+            let workoutInput = $('form.add-entry').find('select#fitness-workout').val();
+            let durationInput = $('form.add-entry').find('#fitness-duration').val();
+            let notesInput = $('form.add-entry').find('#fitness-notes').val();
 
-        let newDataInput = {
-            'date': dateInput,
-            'workout': workoutInput,
-            'duration': durationInput,
-            'notes': notesInput
-        }
+            let newDataInput = {
+                'date': dateInput,
+                'workout': workoutInput,
+                'duration': durationInput,
+                'notes': notesInput
+            }
 
-        $.ajax({
-                method: 'PUT',
-                url: `${FITNESS_URL}/${idParameter}`,
-                contentType: 'application/json',
-                data: JSON.stringify(newDataInput)
-            })
-            .done(function (data) {
-                $('.data-rows').html('');
-                displayAllFitnessEntries(loggedInUser);
-                $('#update-entry-fitness').addClass('hide-display');
-                $('#fitness-table').removeClass('hide-display');
-                $('.data-controls').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+            $.ajax({
+                    method: 'PUT',
+                    url: `${FITNESS_URL}/${idParameter}`,
+                    contentType: 'application/json',
+                    data: JSON.stringify(newDataInput)
+                })
+                .done(function (data) {
+                    $('.data-rows').html('');
+                    displayAllFitnessEntries(loggedInUser);
+                    $('#update-entry-fitness').addClass('hide-display');
+                    $('#fitness-table').removeClass('hide-display');
+                    $('.data-controls').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        })
     }
 
     //UPDATE TRANSPORT DATA
 
     function retrieveTransportData() {
-        let idParameter = $(this).attr('id');
+        $('#transport-table').on('click', '.edit-icon', function () {
+            let idParameter = $(this).attr('id');
+            $('#transport-table').addClass('hide-display');
+            $('.data-controls').addClass('hide-display');
 
-        $.ajax({
-                method: 'GET',
-                url: '/transport-by-id/' + idParameter
-            })
-            .done(function (data) {
-                let transportUpdateForm =
-                    `<div id="update-entry-transport" class="add-entry">
-                    <form class="add-entry" id=${idParameter}>
+            $.ajax({
+                    method: 'GET',
+                    url: '/transport-by-id/' + idParameter
+                })
+                .done(function (data) {
+                    let transportUpdateForm =
+                        `<div id="update-entry-transport" class="add-entry">
+                        <form class="add-entry" id=${idParameter}>
                         <h1 class="add-entry-data">Transport</h1>
                         <h2 class="add-entry-new">Update Entry</h2>
                         <label for="date">Date</label><br>
-                            <input type="text" name="date" value="${data.date}" id="transport-date"><br>
+                        <input type="text" name="date" value="${data.date}" id="transport-date"><br>
                         <label for="type">Type</label><br>
                         <select name="type" value="${data.type}" id="transport-type">
-                            <option>Auto</option>
-                            <option>Bus</option>
-                            <option>Train</option>
-                            <option>Bicycle</option>
-                            <option>Other</option>
+                        <option>Auto</option>
+                        <option>Bus</option>
+                        <option>Train</option>
+                        <option>Bicycle</option>
+                        <option>Other</option>
                         </select><br>
                         <label for="Miles">Miles</label><br>
-                            <input type="text" name="miles" value="${data.miles}" id="transport-miles"><br>
+                        <input type="text" name="miles" value="${data.miles}" id="transport-miles"><br>
                         <label for="notes">Notes</label><br>
-                            <input type="text" name="notes" value="${data.notes}" id="transport-notes"><br>
+                        <input type="text" name="notes" value="${data.notes}" id="transport-notes"><br>
                         <input type="submit" value="Update" class="add-submit transport-update">
-                    </form>
-                </div>`;
-                $('#transport-main').html(transportUpdateForm);
-                $('#update-entry-transport').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+                        </form>
+                        </div>`;
+                    $('#transport-main').html(transportUpdateForm);
+                    $('#update-entry-transport').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
     }
 
     function updateTransportData() {
-        let idParameter = $('form.add-entry').attr('id');
-        let dateInput = $('form.add-entry').find('#transport-date').val();
-        let typeInput = $('form.add-entry').find('select#transport-type').val();
-        let milesInput = $('form.add-entry').find('#transport-miles').val();
-        let notesInput = $('form.add-entry').find('#transport-notes').val();
+        $('#transport-data').on('click', '.transport-update', function (e) {
+            e.preventDefault();
+            let idParameter = $('form.add-entry').attr('id');
+            let dateInput = $('form.add-entry').find('#transport-date').val();
+            let typeInput = $('form.add-entry').find('select#transport-type').val();
+            let milesInput = $('form.add-entry').find('#transport-miles').val();
+            let notesInput = $('form.add-entry').find('#transport-notes').val();
 
-        let newDataInput = {
-            'date': dateInput,
-            'type': typeInput,
-            'miles': milesInput,
-            'notes': notesInput
-        }
+            let newDataInput = {
+                'date': dateInput,
+                'type': typeInput,
+                'miles': milesInput,
+                'notes': notesInput
+            }
 
-        $.ajax({
-                method: 'PUT',
-                url: `${TRANSPORT_URL}/${idParameter}`,
-                contentType: 'application/json',
-                data: JSON.stringify(newDataInput)
-            })
-            .done(function (data) {
-                $('.data-rows').html('');
-                displayAllTransportEntries(loggedInUser);
-                $('#update-entry-transport').addClass('hide-display');
-                $('#transport-table').removeClass('hide-display');
-                $('.data-controls').removeClass('hide-display');
-                $('#transport-table').removeClass('hide-display');
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            })
+            $.ajax({
+                    method: 'PUT',
+                    url: `${TRANSPORT_URL}/${idParameter}`,
+                    contentType: 'application/json',
+                    data: JSON.stringify(newDataInput)
+                })
+                .done(function (data) {
+                    $('.data-rows').html('');
+                    displayAllTransportEntries(loggedInUser);
+                    $('#update-entry-transport').addClass('hide-display');
+                    $('#transport-table').removeClass('hide-display');
+                    $('.data-controls').removeClass('hide-display');
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                })
+        })
     }
+
 
     //DELETE ENTRY
 
     function deleteFinanceEntry() {
-        let idParameter = $(this).attr('id');
+        $('#finance-table').on('click', '.delete-icon', function () {
+            let idParameter = $(this).attr('id');
 
-        $.ajax({
-                method: 'DELETE',
-                url: `${FINANCES_URL}/${idParameter}`
-            })
-            .done(function (data) {
-                $('.data-rows').html('');
-                displayAllFinanceEntries(loggedInUser);
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+            $.ajax({
+                    method: 'DELETE',
+                    url: `${FINANCES_URL}/${idParameter}`
+                })
+                .done(function (data) {
+                    $('.data-rows').html('');
+                    displayAllFinanceEntries(loggedInUser);
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
     }
 
     function deleteHealthEntry() {
-        let idParameter = $(this).attr('id');
+        $('#health-table').on('click', '.delete-icon', function () {
+            let idParameter = $(this).attr('id');
 
-        $.ajax({
-                method: 'DELETE',
-                url: `${HEALTH_URL}/${idParameter}`
-            })
-            .done(function (data) {
-                $('.data-rows').html('');
-                displayAllHealthEntries(loggedInUser);
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+            $.ajax({
+                    method: 'DELETE',
+                    url: `${HEALTH_URL}/${idParameter}`
+                })
+                .done(function (data) {
+                    $('.data-rows').html('');
+                    displayAllHealthEntries(loggedInUser);
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
     }
 
     function deleteFitnessEntry() {
-        let idParameter = $(this).attr('id');
-        $.ajax({
-                method: 'DELETE',
-                url: `${FITNESS_URL}/${idParameter}`
-            })
-            .done(function (data) {
-                $('.data-rows').html('');
-                displayAllFitnessEntries(loggedInUser);
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+        $('#fitness-table').on('click', '.delete-icon', function () {
+            let idParameter = $(this).attr('id');
+            $.ajax({
+                    method: 'DELETE',
+                    url: `${FITNESS_URL}/${idParameter}`
+                })
+                .done(function (data) {
+                    $('.data-rows').html('');
+                    displayAllFitnessEntries(loggedInUser);
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
     }
 
     function deleteTransportEntry() {
-        let idParameter = $(this).attr('id');
+        $('#transport-table').on('click', '.delete-icon', function () {
+            let idParameter = $(this).attr('id');
 
-        $.ajax({
-                method: 'DELETE',
-                url: `${TRANSPORT_URL}/${idParameter}`
-            })
-            .done(function (data) {
-                $('.data-rows').html('');
-                displayAllTransportEntries(loggedInUser);
-            })
-            .fail(function (jqXHR, error, errorThrown) {
-                console.log(jqXHR);
-                console.log(error);
-                console.log(errorThrown);
-            });
+            $.ajax({
+                    method: 'DELETE',
+                    url: `${TRANSPORT_URL}/${idParameter}`
+                })
+                .done(function (data) {
+                    $('.data-rows').html('');
+                    displayAllTransportEntries(loggedInUser);
+                })
+                .fail(function (jqXHR, error, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(error);
+                    console.log(errorThrown);
+                });
+        });
     }
+
 
     //CREATE ENTRY
 
     function createFinanceEntry() {
-        let dateInput = $(this).parent().find('#finance-add-date').val();
-        let categoryInput = $(this).parent().find('#finance-add-category').val();
-        let costInput = $(this).parent().find('#finance-add-cost').val();
-        let notesInput = $(this).parent().find('#finance-add-notes').val();
+        $('.add-entry').on('click', '.finance-submit', function (e) {
+            e.preventDefault();
+            let dateInput = $(this).parent().find('#finance-add-date').val();
+            let categoryInput = $(this).parent().find('#finance-add-category').val();
+            let costInput = $(this).parent().find('#finance-add-cost').val();
+            let notesInput = $(this).parent().find('#finance-add-notes').val();
 
-        let dataInput = {
-            'username': loggedInUser,
-            'date': dateInput,
-            'category': categoryInput,
-            'cost': costInput,
-            'notes': notesInput
-        };
+            let dataInput = {
+                'username': loggedInUser,
+                'date': dateInput,
+                'category': categoryInput,
+                'cost': costInput,
+                'notes': notesInput
+            };
 
-        $.ajax({
-                method: "POST",
-                url: `${FINANCES_URL}/new`,
-                contentType: 'application/json',
-                data: JSON.stringify(dataInput)
-            })
-            .done(function (data) {
-                $('#add-entry-finance').addClass('hide-display');
-                $('.data-rows').html('');
-                displayAllFinanceEntries(loggedInUser);
-                $('#finance-table').removeClass('hide-display');
-                $('.data-controls').removeClass('hide-display');
-                $('.dash-buttons').removeClass('hide-display');
-                $('form.add-entry').find('#finance-add-date').val('');
-                $('form.add-entry').find('#finance-add-category').val('');
-                $('form.add-entry').find('#finance-add-cost').val('');
-                $('form.add-entry').find('#finance-add-notes').val('');
-            })
+            $.ajax({
+                    method: "POST",
+                    url: `${FINANCES_URL}/new`,
+                    contentType: 'application/json',
+                    data: JSON.stringify(dataInput)
+                })
+                .done(function (data) {
+                    $('#add-entry-finance').addClass('hide-display');
+                    $('.data-rows').html('');
+                    displayAllFinanceEntries(loggedInUser);
+                    $('#finance-table').removeClass('hide-display');
+                    $('.data-controls').removeClass('hide-display');
+                    $('.dash-buttons').removeClass('hide-display');
+                    $('form.add-entry').find('#finance-add-date').val('');
+                    $('form.add-entry').find('#finance-add-category').val('');
+                    $('form.add-entry').find('#finance-add-cost').val('');
+                    $('form.add-entry').find('#finance-add-notes').val('');
+                })
+        })
     }
 
     function createHealthEntry() {
-        let dateInput = $(this).parent().find('#health-add-date').val();
-        let categoryInput = $(this).parent().find('#health-add-category').val();
-        let notesInput = $(this).parent().find('#health-add-notes').val();
+        $('.add-entry').on('click', '.health-submit', function (e) {
+            e.preventDefault();
+            let dateInput = $(this).parent().find('#health-add-date').val();
+            let categoryInput = $(this).parent().find('#health-add-category').val();
+            let notesInput = $(this).parent().find('#health-add-notes').val();
 
-        let dataInput = {
-            'username': loggedInUser,
-            'date': dateInput,
-            'category': categoryInput,
-            'notes': notesInput
-        };
+            let dataInput = {
+                'username': loggedInUser,
+                'date': dateInput,
+                'category': categoryInput,
+                'notes': notesInput
+            };
 
-        $.ajax({
-                method: "POST",
-                url: `${HEALTH_URL}/new`,
-                contentType: 'application/json',
-                data: JSON.stringify(dataInput)
-            })
-            .done(function (data) {
-                $('#add-entry-health').addClass('hide-display');
-                $('.data-rows').html('');
-                displayAllHealthEntries(loggedInUser);
-                $('#health-table').removeClass('hide-display');
-                $('.data-controls').removeClass('hide-display');
-                $('.dash-buttons').removeClass('hide-display');
-                $('form.add-entry').find('#health-add-date').val('');
-                $('form.add-entry').find('#health-add-category').val('');
-                $('form.add-entry').find('#health-add-notes').val('');
-            })
+            $.ajax({
+                    method: "POST",
+                    url: `${HEALTH_URL}/new`,
+                    contentType: 'application/json',
+                    data: JSON.stringify(dataInput)
+                })
+                .done(function (data) {
+                    $('#add-entry-health').addClass('hide-display');
+                    $('.data-rows').html('');
+                    displayAllHealthEntries(loggedInUser);
+                    $('#health-table').removeClass('hide-display');
+                    $('.data-controls').removeClass('hide-display');
+                    $('.dash-buttons').removeClass('hide-display');
+                    $('form.add-entry').find('#health-add-date').val('');
+                    $('form.add-entry').find('#health-add-category').val('');
+                    $('form.add-entry').find('#health-add-notes').val('');
+                })
+        })
     }
 
     function createFitnessEntry() {
-        let dateInput = $(this).parent().find('#fitness-add-date').val();
-        let workoutInput = $(this).parent().find('#fitness-add-workout').val();
-        let durationInput = $(this).parent().find('#fitness-add-duration').val();
-        let notesInput = $(this).parent().find('#fitness-add-notes').val();
+        $('.add-entry').on('click', '.fitness-submit', function (e) {
+            e.preventDefault();
+            let dateInput = $(this).parent().find('#fitness-add-date').val();
+            let workoutInput = $(this).parent().find('#fitness-add-workout').val();
+            let durationInput = $(this).parent().find('#fitness-add-duration').val();
+            let notesInput = $(this).parent().find('#fitness-add-notes').val();
 
-        let dataInput = {
-            'username': loggedInUser,
-            'date': dateInput,
-            'workout': workoutInput,
-            'duration': durationInput,
-            'notes': notesInput
-        };
+            let dataInput = {
+                'username': loggedInUser,
+                'date': dateInput,
+                'workout': workoutInput,
+                'duration': durationInput,
+                'notes': notesInput
+            };
 
-        $.ajax({
-                method: "POST",
-                url: `${FITNESS_URL}/new`,
-                contentType: 'application/json',
-                data: JSON.stringify(dataInput)
-            })
-            .done(function (data) {
-                $('#add-entry-fitness').addClass('hide-display');
-                $('.data-rows').html('');
-                displayAllFitnessEntries(loggedInUser);
-                $('#fitness-table').removeClass('hide-display');
-                $('.data-controls').removeClass('hide-display');
-                $('.dash-buttons').removeClass('hide-display');
-                $('form.add-entry').find('#fitness-add-date').val('');
-                $('form.add-entry').find('#fitness-add-workout').val('');
-                $('form.add-entry').find('#fitness-add-duration').val('');
-                $('form.add-entry').find('#fitness-add-notes').val('');
-            })
+            $.ajax({
+                    method: "POST",
+                    url: `${FITNESS_URL}/new`,
+                    contentType: 'application/json',
+                    data: JSON.stringify(dataInput)
+                })
+                .done(function (data) {
+                    $('#add-entry-fitness').addClass('hide-display');
+                    $('.data-rows').html('');
+                    displayAllFitnessEntries(loggedInUser);
+                    $('#fitness-table').removeClass('hide-display');
+                    $('.data-controls').removeClass('hide-display');
+                    $('.dash-buttons').removeClass('hide-display');
+                    $('form.add-entry').find('#fitness-add-date').val('');
+                    $('form.add-entry').find('#fitness-add-workout').val('');
+                    $('form.add-entry').find('#fitness-add-duration').val('');
+                    $('form.add-entry').find('#fitness-add-notes').val('');
+                })
+        })
     }
 
     function createTransportEntry() {
-        let dateInput = $(this).parent().find('#transport-add-date').val();
-        let typeInput = $(this).parent().find('#transport-add-type').val();
-        let milesInput = $(this).parent().find('#transport-add-miles').val();
-        let notesInput = $(this).parent().find('#transport-add-notes').val();
+        $('.add-entry').on('click', '.transport-submit', function (e) {
+            e.preventDefault();
+            let dateInput = $(this).parent().find('#transport-add-date').val();
+            let typeInput = $(this).parent().find('#transport-add-type').val();
+            let milesInput = $(this).parent().find('#transport-add-miles').val();
+            let notesInput = $(this).parent().find('#transport-add-notes').val();
 
-        let dataInput = {
-            'username': loggedInUser,
-            'date': dateInput,
-            'type': typeInput,
-            'miles': milesInput,
-            'notes': notesInput
-        };
+            let dataInput = {
+                'username': loggedInUser,
+                'date': dateInput,
+                'type': typeInput,
+                'miles': milesInput,
+                'notes': notesInput
+            };
 
-        $.ajax({
-                method: "POST",
-                url: `${TRANSPORT_URL}/new`,
-                contentType: 'application/json',
-                data: JSON.stringify(dataInput)
-            })
-            .done(function (data) {
-                $('#add-entry-transport').addClass('hide-display');
-                $('.data-rows').html('');
-                displayAllTransportEntries(loggedInUser);
-                $('#transport-table').removeClass('hide-display');
-                $('.data-controls').removeClass('hide-display');
-                $('.dash-buttons').removeClass('hide-display');
-                $('form.add-entry').find('#transport-add-date').val('');
-                $('form.add-entry').find('#transport-add-type').val('');
-                $('form.add-entry').find('#transport-add-miles').val('');
-                $('form.add-entry').find('#transport-add-notes').val('');
-            })
+            $.ajax({
+                    method: "POST",
+                    url: `${TRANSPORT_URL}/new`,
+                    contentType: 'application/json',
+                    data: JSON.stringify(dataInput)
+                })
+                .done(function (data) {
+                    $('#add-entry-transport').addClass('hide-display');
+                    $('.data-rows').html('');
+                    displayAllTransportEntries(loggedInUser);
+                    $('#transport-table').removeClass('hide-display');
+                    $('.data-controls').removeClass('hide-display');
+                    $('.dash-buttons').removeClass('hide-display');
+                    $('form.add-entry').find('#transport-add-date').val('');
+                    $('form.add-entry').find('#transport-add-type').val('');
+                    $('form.add-entry').find('#transport-add-miles').val('');
+                    $('form.add-entry').find('#transport-add-notes').val('');
+                })
+        })
     }
 
 
     //CREATE USER
     function createUser() {
-        let usernameInput = $(this).parent().find('#username-input').val();
-        let passwordInput = $(this).parent().find('#password-input').val();
-
+        let usernameInput = $('.sign-up-submit').parent().find('#username-input').val();
+        let passwordInput = $('.sign-up-submit').parent().find('#password-input').val();
 
         let userInput = {
             'username': usernameInput,
@@ -809,8 +865,8 @@
 
     //LOGIN TO APP
     function loginApp() {
-        let usernameInput = $(this).parent().find('#login-username').val();
-        let passwordInput = $(this).parent().find('#login-password').val();
+        let usernameInput = $('.sign-in-submit').parent().find('#login-username').val();
+        let passwordInput = $('.sign-in-submit').parent().find('#login-password').val();
 
         let loginInput = {
             'username': usernameInput,
@@ -1031,107 +1087,6 @@
         $('#transport-entry').addClass('hide-display');
     });
 
-    $('#finance-table').on('click', '.view-icon', function () {
-        displayFinanceByID();
-    });
-
-    $('#health-table').on('click', '.view-icon', function () {
-        displayHealthByID();
-    });
-
-    $('#fitness-table').on('click', '.view-icon', function () {
-        displayFitnessByID();
-    });
-
-    $('#transport-table').on('click', '.view-icon', function () {
-        displayTransportByID();
-    });
-
-    //click edit icon to edit entry
-    //first get data
-    //then update
-    $('#finance-table').on('click', '.edit-icon', function () {
-        $('#finance-table').addClass('hide-display');
-        $('.data-controls').addClass('hide-display');
-        retrieveFinanceData();
-    });
-
-    $('#finance-data').on('click', '.finance-update', function (e) {
-        e.preventDefault();
-        updateFinanceData();
-    });
-
-    $('#health-table').on('click', '.edit-icon', function () {
-        $('#health-table').addClass('hide-display');
-        $('.data-controls').addClass('hide-display');
-        retrieveHealthdata();
-    });
-
-    $('#health-data').on('click', '.health-update', function (e) {
-        e.preventDefault();
-        updateHealthData();
-    });
-
-    $('#fitness-table').on('click', '.edit-icon', function () {
-        $('#fitness-table').addClass('hide-display');
-        $('.data-controls').addClass('hide-display');
-        retrieveFitnessData();
-    });
-
-    $('#fitness-data').on('click', '.fitness-update', function (e) {
-        e.preventDefault();
-        updateFitnessData();
-    });
-
-    $('#transport-table').on('click', '.edit-icon', function () {
-        $('#transport-table').addClass('hide-display');
-        $('.data-controls').addClass('hide-display');
-        retrieveTransportData();
-    });
-
-    $('#transport-data').on('click', '.transport-update', function (e) {
-        e.preventDefault();
-        updateTransportData();
-    });
-
-    //DELETE entries
-
-    $('#finance-table').on('click', '.delete-icon', function () {
-        deleteFinanceEntry()
-    });
-
-    $('#health-table').on('click', '.delete-icon', function () {
-        deleteHealthEntry()
-    });
-
-    $('#fitness-table').on('click', '.delete-icon', function () {
-        deleteFitnessEntry()
-    });
-
-    $('#transport-table').on('click', '.delete-icon', function () {
-        deleteTransportEntry()
-    });
-
-    //ADD entries
-    $('.add-entry').on('click', '.finance-submit', function (e) {
-        e.preventDefault();
-        createFinanceEntry();
-    });
-
-    $('.add-entry').on('click', '.health-submit', function (e) {
-        e.preventDefault();
-        createHealthEntry();
-    });
-
-    $('.add-entry').on('click', '.fitness-submit', function (e) {
-        e.preventDefault();
-        createFitnessEntry();
-    });
-
-    $('.add-entry').on('click', '.transport-submit', function (e) {
-        e.preventDefault();
-        createTransportEntry()
-    });
 
     //sign up
     $('.sign-up-submit').on('click', function (e) {
@@ -1139,7 +1094,7 @@
         createUser();
     });
 
-    //sign in
+    //login
     $('.sign-in-submit').on('click', function (e) {
         e.preventDefault();
         loginApp();
@@ -1150,6 +1105,27 @@
         e.preventDefault();
         logoutApp()
     });
+
+    displayFinanceByID();
+    displayHealthByID();
+    displayFitnessByID();
+    displayTransportByID();
+    retrieveFinanceData();
+    updateFinanceData();
+    retrieveHealthData();
+    updateHealthData();
+    retrieveFitnessData();
+    updateFitnessData();
+    retrieveTransportData();
+    updateTransportData();
+    createFinanceEntry();
+    createHealthEntry();
+    createFitnessEntry();
+    createTransportEntry();
+    deleteFinanceEntry();
+    deleteHealthEntry();
+    deleteFitnessEntry();
+    deleteTransportEntry();
 
 
 })(jQuery);
