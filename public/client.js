@@ -164,7 +164,7 @@
 
     function displayHealthByID() {
         $('#health-table').on('click', '.view-icon', function () {
-            let idParameter = $('#health-table').attr('id');
+            let idParameter = $(this).attr('id');
 
             $.ajax({
                     method: 'GET',
