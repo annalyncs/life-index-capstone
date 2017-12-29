@@ -108,9 +108,9 @@ router.use(passport.initialize());
 //login user
 
 router.post('/login', passport.authenticate('basic', {session: true}),(req, res) => {
-    res.json(req.body.username);
     console.log(req.body.username);
     console.log(req.body.password);
+    res.json(req.body.username);
 });
 
 
