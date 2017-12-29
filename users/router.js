@@ -2,12 +2,14 @@ const {BasicStrategy} = require('passport-http');
 const express = require('express');
 const jsonParser = require('body-parser').json();
 const passport = require('passport');
+const cors = require('cors');
 
 const {User} = require('../models/User');
 
 const router = express.Router();
 
 router.use(jsonParser);
+router.use(cors());
 
 //create new user
 
