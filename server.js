@@ -77,9 +77,6 @@ app.get('/logout', function (req, res) {
 
 // retrieve all documents from the database
 app.get('/finances-by-user/:user',
-    passport.authenticate('basic', {
-        session: false
-    }),
     function (req, res) {
         Finance
             .find({
@@ -98,9 +95,6 @@ app.get('/finances-by-user/:user',
 
 
 app.get('/health-by-user/:user',
-    passport.authenticate('basic', {
-        session: false
-    }),
     function (req, res) {
         Health
             .find({
@@ -118,9 +112,6 @@ app.get('/health-by-user/:user',
     });
 
 app.get('/fitness-by-user/:user',
-    passport.authenticate('basic', {
-        session: false
-    }),
     function (req, res) {
         Fitness
             .find({
@@ -138,9 +129,6 @@ app.get('/fitness-by-user/:user',
     });
 
 app.get('/transport-by-user/:user',
-    passport.authenticate('basic', {
-        session: false
-    }),
     function (req, res) {
         Transport
             .find({

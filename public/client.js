@@ -874,7 +874,7 @@
         };
 
         $.ajax({
-                url: USER_AUTH_URL,
+                url: '/login',
                 method: 'POST',
                 data: JSON.stringify(loginInput),
                 contentType: 'application/json'

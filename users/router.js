@@ -1,12 +1,15 @@
 const {BasicStrategy} = require('passport-http');
 const express = require('express');
 const jsonParser = require('body-parser').json();
+const mongoose = require("mongoose");
 const passport = require('passport');
 const cors = require('cors');
 
 const {User} = require('../models/User');
 
 const router = express.Router();
+
+mongoose.Promise = global.Promise;
 
 router.use(jsonParser);
 router.use(cors());
