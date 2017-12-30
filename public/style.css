@@ -11,20 +11,6 @@ body {
 
 /*****MISC****/
 
-header.header-logo {
-    text-transform: uppercase;
-    margin: 10px;
-    padding: 10px;
-    text-align: left;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-weight: 700;
-    font-size: 20px;
-    color: white;
-    background: rgba(0, 0, 0, 0.7);
-}
-
 div,
 section {
     margin-top: 80px;
@@ -85,10 +71,12 @@ li.nav-left {
 
 /*****LANDING PAGE*****/
 
+
 div.start-page header {
     background: rgba(0, 0, 0, 0.5);
     height: 100%;
 }
+
 
 .start-page {
     background: rgba(255, 0, 0, 0.25);
@@ -99,6 +87,7 @@ div.start-page header {
     background-position: center;
     height: 100vh;
     position: relative;
+    width: 100%;
     margin: 0;
 }
 
@@ -162,6 +151,19 @@ section.about-page {
 }
 
 /*****DASHBOARD*****/
+header.header-logo {
+    text-transform: uppercase;
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+}
 
 h1.dashboard-header {
     font-size: 50px;
@@ -449,13 +451,16 @@ footer img {
     box-sizing: border-box;
 }
 
+/*
 .row {
     max-width: 1000px;
     padding-left: 20px;
     padding-right: 20px;
     margin: 0 auto;
 }
+*/
 
+/*
 @media screen and (min-width: 640px) {
     .col-3 {
         width: 30%;
@@ -463,3 +468,4 @@ footer img {
         vertical-align: text-top;
     }
 }
+*/
