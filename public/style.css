@@ -427,10 +427,19 @@ input#transport-notes {
 /*****FOOTER*****/
 
 footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
     background: #ccc;
-    height: 7vh;
     padding: 10px;
     text-align: center;
+}
+
+footer img {
+    height: 24px;
+    margin: 5px;
 }
 
 
