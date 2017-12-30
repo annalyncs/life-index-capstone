@@ -877,7 +877,10 @@
                 url: '/login',
                 method: 'POST',
                 data: JSON.stringify(loginInput),
-                contentType: 'application/json'
+                contentType: 'application/json',
+                headers: {
+                    "Authorization": "Basic " + btoa(usernameInput + ":" + passwordInput)
+                },
             })
             .done(function (data) {
                 console.log('logging in');
