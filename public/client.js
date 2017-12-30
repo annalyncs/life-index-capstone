@@ -897,6 +897,7 @@
                 console.log(jqXHR);
                 console.log(error);
                 console.log(errorThrown);
+                alert(jqXHR.responseText)
             });
     }
 

@@ -84,20 +84,30 @@ passport.use(new BasicStrategy(
         .then(_user => {
         user = _user;
         if (!user) {
-            return callback(null, false, {message: 'Incorrect username'});
+            return Promise.reject({
+                reason: 'LoginError',
+                message: 'Incorrect username or password'
+            });
         }
         return user.validatePassword(password);
     })
         .then(isValid => {
         if (!isValid) {
-            return callback(null, false, {message: 'Incorrect password'});
+            return Promise.reject({
+                reason: 'LoginError',
+                message: 'Incorrect username or password'
+            });
         }
-        else {
             return callback(null, user)
+        })
+        .catch(err => {
+            if (err.reason === 'LoginError') {
+                return callback(null, false, err);
         }
+            return callback(err, false);
         });
-    }
-));
+    })
+);
 
 
 passport.serializeUser(function(user, done) {
@@ -113,8 +123,6 @@ router.use(passport.initialize());
 //login user
 
 router.post('/login', passport.authenticate('basic', {session: true}),(req, res) => {
-    console.log(req.body.username);
-    console.log(req.body.password);
     res.json(req.body.username);
 });
 
