@@ -342,6 +342,10 @@ img.icon {
     text-align: center;
 }
 
+#sign-up-form,
+#sign-in-form {
+    height: 100vh;
+}
 
 form h2 {
     color: steelblue;
@@ -438,6 +442,7 @@ footer {
     padding: 10px;
     text-align: center;
 }
+
 
 footer img {
     height: 24px;
