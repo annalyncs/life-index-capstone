@@ -24,6 +24,7 @@ The initial wireframes for the page and the list of results can be seen below.
 
 ## Working Prototype
 
+You can find Life Index at (https://annalyncs.github.io/life-index-react-capstone/build)
 
 ## Technology
 
